@@ -122,6 +122,9 @@ h1 {
 h2 {
 	@apply font-bebas text-6xl text-black;
 }
+h5 {
+	@apply font-bebas text-2xl text-black;
+}
 
 p {
 	@apply font-instrument text-2xl text-gray;
