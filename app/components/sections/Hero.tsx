@@ -3,10 +3,10 @@ import Button from "../Button";
 import HeroSideChip from "../HeroSideChip";
 
 const heroSideChips = [
-	{ title: "15+", description: "Years Experience" },
-	{ title: "280+", description: "Projects Delivered" },
-	{ title: "*99%", description: "Clients Satisfaction" },
-	{ title: "50", description: "Clients Worldwide" },
+	{ title: "1+", description: "Years Experience" },
+	{ title: "3+", description: "Projects Delivered" },
+	{ title: "*95%", description: "Clients Satisfaction" },
+	{ title: "4", description: "Total Clients" },
 ];
 
 export default function Hero() {
