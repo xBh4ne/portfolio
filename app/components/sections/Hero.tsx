@@ -1,13 +1,6 @@
 import Image from "next/image";
 import Button from "../Button";
-import HeroSideChip from "../HeroSideChip";
-
-const heroSideChips = [
-	{ title: "1+", description: "Years Experience" },
-	{ title: "3+", description: "Projects Delivered" },
-	{ title: "*95%", description: "Clients Satisfaction" },
-	{ title: "4", description: "Total Clients" },
-];
+import HeroSideChips from "../HeroSideChips";
 
 export default function Hero() {
 	return (
@@ -30,21 +23,13 @@ export default function Hero() {
 						</p>
 						<Button arrow>Contact Me</Button>
 					</div>
-					<div className="flex-col flex  gap-12">
-						{heroSideChips.map((chip) => (
-							<HeroSideChip
-								title={chip.title}
-								description={chip.description}
-								key={chip.description}
-							/>
-						))}
-					</div>
+					<HeroSideChips />
 					<Image
 						width={1000}
 						height={1000}
 						className="object-top object-cover h-[90vh] w-162 absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-b-full"
 						alt="hero-image"
-						src="/images/hero-imagee.png"
+						src="/images/hero-image.png"
 						priority
 					/>
 				</div>
