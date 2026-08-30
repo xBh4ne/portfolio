@@ -44,7 +44,7 @@ export default function Hero() {
 						height={1000}
 						className="object-top object-cover h-[90vh] w-162 absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-b-full"
 						alt="hero-image"
-						src="/images/hero-image.png"
+						src="/images/hero-imagee.png"
 						priority
 					/>
 				</div>
