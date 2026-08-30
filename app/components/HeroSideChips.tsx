@@ -9,7 +9,7 @@ export default function HeroSideChips() {
 	return (
 		<div className="flex-col flex  gap-12">
 			{heroSideChips.map((chip) => (
-				<div className="flex flex-col items-end">
+				<div key={chip.description} className="flex flex-col items-end">
 					<h2>{chip.title}</h2>
 					<p>{chip.description}</p>
 				</div>
