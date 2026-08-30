@@ -68,8 +68,7 @@ export default function Navigation() {
 
 		setIsOpen(!isOpen);
 	}
-
-	// ✅ Fix: React.MouseEvent<HTMLLIElement> invece di MouseEvent (nativo)
+	
 	function handleMouseEnter(e: React.MouseEvent<HTMLLIElement>) {
 		gsap.to(e.currentTarget, {
 			paddingLeft: "2.5rem",

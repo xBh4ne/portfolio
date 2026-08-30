@@ -4,7 +4,7 @@ import HeroSideChips from "../HeroSideChips";
 
 export default function Hero() {
 	return (
-		<section className="px-5">
+		<section className="px-5" id="Home">
 			<div className="container mx-auto">
 				<div className="flex w-full h-[80vh] justify-between items-center">
 					<div className="flex flex-col items-start w-1/3 gap-5">

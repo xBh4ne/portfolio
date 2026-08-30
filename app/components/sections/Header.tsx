@@ -3,7 +3,7 @@ import Navigation from "../Navigation";
 
 export default function Header() {
 	return (
-		<header className="flex w-full bg-transparent px-5 py-10 sticky top-0">
+		<header className="flex w-full bg-transparent px-5 py-10 sticky top-0" >
 			<div className="container mx-auto">
 				<nav className="flex justify-between w-full">
 					<Logo />
