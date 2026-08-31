@@ -33,7 +33,7 @@ export default function ContactMe() {
 	}
 
 	return (
-		<section className="px-5 my-80" id="Contact Me">
+		<section className="px-5 mt-80" id="Contact Me">
 			<div className="container mx-auto">
 				<div className="grid grid-cols-2">
 					<div className="flex flex-col gap-16">

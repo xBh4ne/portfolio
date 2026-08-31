@@ -2,11 +2,16 @@ import Image from "next/image";
 import Button from "../Button";
 import HeroSideChips from "../HeroSideChips";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
 	return (
 		<section className="px-5" id="Home">
 			<div className="container mx-auto">
+				<div className="flex flex-col items-center gap-3 mt-10 absolute left-1/2 -translate-x-1/2 bottom-8">
+					<ChevronDown className="text-gray" />
+				</div>
+
 				<div className="flex w-full h-[80vh] justify-between items-center">
 					<div className="flex flex-col items-start w-1/3 gap-5">
 						<span className="font-instrument text-4xl text-black">

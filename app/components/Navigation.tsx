@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import Button from "../components/Button";
 import { gsap } from "gsap";
 import { X, Menu } from "lucide-react";
@@ -13,39 +13,52 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const isAnimating = useRef<boolean>(false);
 	const wrapperRef = useRef<HTMLDivElement>(null);
-	const initialLeft = useRef<number>(0);
 
-	function centerWrapper() {
+	/**
+	 * Calcola l'offset X necessario per centrare il wrapper nel viewport.
+	 * Usa getBoundingClientRect() (include il transform GSAP attuale)
+	 * e sottrae il transform già applicato → posizione naturale reale.
+	 * Funziona correttamente anche dopo resize o animazioni precedenti.
+	 */
+	const getCenterOffset = useCallback((): number => {
+		if (!wrapperRef.current) return 0;
+
+		const rect = wrapperRef.current.getBoundingClientRect();
+		const currentX = gsap.getProperty(wrapperRef.current, "x") as number;
+
+		// Posizione centrale del wrapper SENZA il transform GSAP
+		const naturalCenterX = rect.left + rect.width / 2 - currentX;
+		const viewportCenter = window.innerWidth / 2;
+
+		return viewportCenter - naturalCenterX;
+	}, []);
+
+	// Animazione scroll: centra o riporta alla posizione originale
+	useEffect(() => {
 		if (!wrapperRef.current) return;
 
-		// ✅ Prende il centro della <nav> parent, non della viewport
-		const navEl = wrapperRef.current.closest("nav");
-		if (!navEl) return;
-
-		const navRect = navEl.getBoundingClientRect();
-		const navCenter = navRect.left + navRect.width / 2;
-
-		const wrapperWidth = wrapperRef.current.offsetWidth;
-		const wrapperCenter = initialLeft.current + wrapperWidth / 2;
-		const offset = navCenter - wrapperCenter;
-
 		gsap.to(wrapperRef.current, {
-			x: offset,
+			x: isScrolled ? getCenterOffset() : 0,
 			ease: "elastic.out(0.3, 0.8)",
 			duration: 1,
 		});
-	}
+	}, [isScrolled, getCenterOffset]);
 
-	function resetWrapper() {
-		if (!wrapperRef.current) return;
-		gsap.to(wrapperRef.current, {
-			x: 0,
-			ease: "elastic.out(0.3, 0.8)",
-			duration: 1,
-		});
-	}
+	// Resize-safe: ricalcola e riapplica il centro se la finestra cambia
+	useEffect(() => {
+		const handleResize = () => {
+			if (!wrapperRef.current || !isScrolled) return;
+			gsap.to(wrapperRef.current, {
+				x: getCenterOffset(),
+				duration: 0.3,
+				ease: "power2.out",
+			});
+		};
 
-	// ✅ Funzione dedicata per chiudere il menu con animazione
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, [isScrolled, getCenterOffset]);
+
 	function closeMenu() {
 		if (!isOpen || isAnimating.current) return;
 		isAnimating.current = true;
@@ -75,39 +88,17 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		setIsOpen(false);
 	}
 
-	// Salva la posizione iniziale al mount
-	useEffect(() => {
-		if (wrapperRef.current) {
-			initialLeft.current = wrapperRef.current.getBoundingClientRect().left;
-		}
-	}, []);
-
-	// Reagisce al cambio di isScrolled
-	useEffect(() => {
-		if (isScrolled) {
-			centerWrapper();
-		} else {
-			resetWrapper();
-		}
-	}, [isScrolled]);
-
-	// ✅ Chiudi il menu quando si scrolla
 	useEffect(() => {
 		const handleScroll = () => closeMenu();
-
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, [isOpen]);
 
-	// ✅ Chiudi il menu quando si clicca fuori
 	useEffect(() => {
 		const handleClickOutside = (e: MouseEvent) => {
 			if (!wrapperRef.current) return;
-			if (!wrapperRef.current.contains(e.target as Node)) {
-				closeMenu();
-			}
+			if (!wrapperRef.current.contains(e.target as Node)) closeMenu();
 		};
-
 		document.addEventListener("mousedown", handleClickOutside);
 		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, [isOpen]);
@@ -186,11 +177,11 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 			<Button onClick={handleClick}>
 				{isOpen ? (
 					<>
-						Close <X />
+						{!isScrolled && "Close"} <X />
 					</>
 				) : (
 					<>
-						Menu <Menu />
+						{!isScrolled && "Menu"} <Menu />
 					</>
 				)}
 			</Button>
@@ -204,7 +195,6 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 								className="p-3 px-6 cursor-pointer list-none last:text-black! last:bg-white rounded-full"
 								onMouseEnter={handleMouseEnter}
 								onMouseLeave={handleMouseLeave}
-								// ✅ Chiudi il menu al click sulla voce
 								onClick={closeMenu}
 							>
 								<a href={"#" + menuVoice}>{menuVoice}</a>
