@@ -1,14 +1,31 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Logo from "../Logo";
 import Navigation from "../Navigation";
 
 export default function Header() {
+	const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+	useEffect(() => {
+		// Controlla subito al mount (es. reload con pagina già scrollata)
+		setIsScrolled(window.scrollY > 0);
+
+		const handleScroll = () => {
+			setIsScrolled(window.scrollY > 0);
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
 	return (
-		<header className="flex w-full bg-transparent py-10 sticky top-0 px-5" >
+		<header className="flex w-full bg-transparent py-10 sticky top-0 px-5 z-10">
 			<div className="container mx-auto">
 				<nav className="flex justify-between w-full">
-					<Logo />
+					<Logo isScrolled={isScrolled} />
 					<ul className="flex font-instrument text-xl text-black gap-8 items-center">
-						<Navigation />
+						<Navigation isScrolled={isScrolled} />
 					</ul>
 				</nav>
 			</div>

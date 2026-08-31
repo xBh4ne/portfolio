@@ -1,3 +1,4 @@
+import { Braces } from "lucide-react";
 import "./globals.css";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -6,8 +7,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 			<head>
 				<meta charSet="utf-8" />
 				<link rel="stylesheet" href="src/styles/global.css" />
-				<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-				<link rel="icon" href="/favicon.ico" />
+				<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 				<meta name="viewport" content="width=device-width" />
 				<title>Jason Bini</title>
 			</head>

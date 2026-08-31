@@ -46,7 +46,7 @@ export default function Projects() {
 					</div>
 
 					{projects.map((project) => (
-						<div className="flex flex-col gap-5">
+						<div key={project.name} className="flex flex-col gap-5">
 							<Image
 								unoptimized
 								className="w-full h-150 rounded-4xl"
