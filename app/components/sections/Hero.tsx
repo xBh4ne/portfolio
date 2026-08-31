@@ -27,9 +27,9 @@ export default function Hero() {
 							clean code and experiences that don&apos;t just capture attention,
 							but turn every visitor into a client.
 						</p>
-						<Button arrow>
-							<a href="#Contact Me">Contact Me</a>
-						</Button>
+						<a href="#Contact Me">
+							<Button arrow>Contact Me</Button>
+						</a>
 					</div>
 					<HeroSideChips />
 					<Image

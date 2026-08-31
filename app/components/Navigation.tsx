@@ -172,7 +172,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 	return (
 		<div
 			ref={wrapperRef}
-			className={`flex flex-col ${isScrolled ? "items-center" : "items-end"} gap-4`}
+			className={`flex flex-col ${isScrolled ? "items-center" : "items-end"} gap-4 pointer-events-auto`}
 		>
 			<Button onClick={handleClick}>
 				{isOpen ? (
