@@ -109,6 +109,10 @@ a:hover {
 	@apply text-primary;
 }
 
+.input {
+	@apply p-6 border-gray-300 bg-white border rounded-2xl text-xl font-instrument;
+}
+
 @layer components {
 	.with-separator > *:not(:last-child) {
 		position: relative;
