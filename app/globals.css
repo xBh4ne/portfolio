@@ -64,36 +64,43 @@
 	--color-primary: #83722c;
 }
 
-/* ---- Headings ---- */
-/* Display (solo Bebas) */
 h1 {
-	@apply font-bebas text-8xl text-black leading-none tracking-wide;
+	@apply font-bebas text-6xl md:text-8xl text-black leading-none tracking-wide;
 }
+
 h2 {
-	@apply font-bebas text-7xl text-black leading-none tracking-wide;
+	@apply font-bebas text-5xl md:text-7xl text-black leading-none tracking-wide;
 }
+
 h3 {
-	@apply font-bebas text-6xl text-black leading-none tracking-wide;
+	@apply font-bebas text-4xl md:text-5xl text-black leading-tight tracking-wide;
 }
+
 h4 {
-	@apply font-bebas text-5xl text-black leading-none tracking-wide;
+	@apply font-bebas text-3xl md:text-4xl text-black leading-tight tracking-wide;
 }
+
 h5 {
-	@apply font-bebas text-4xl text-black leading-none tracking-wide;
+	@apply font-bebas text-2xl md:text-3xl text-black leading-tight tracking-wide;
 }
+
 h6 {
-	@apply font-bebas text-3xl text-black leading-none tracking-wide;
+	@apply font-bebas text-xl md:text-2xl text-black leading-snug tracking-wide;
 }
 
 /* ---- Body text ---- */
+
 p {
 	@apply font-instrument text-2xl text-gray leading-relaxed;
 }
 
 .subtitle {
-	@apply text-lg text-gray leading-relaxed;
+	@apply font-instrument text-lg text-gray leading-relaxed;
 }
 
+.caption {
+	@apply font-instrument text-base text-gray-300 leading-normal;
+}
 /* ---- Links ---- */
 a {
 	@apply text-inherit no-underline transition-colors;
@@ -119,4 +126,9 @@ a:hover {
 		background-color: var(--color-gray-300);
 		opacity: 1;
 	}
+}
+
+::selection {
+	background-color: var(--color-primary);
+	color: var(--color-white);
 }
