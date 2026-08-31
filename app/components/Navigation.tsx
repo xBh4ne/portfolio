@@ -17,10 +17,17 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 
 	function centerWrapper() {
 		if (!wrapperRef.current) return;
+
+		// ✅ Prende il centro della <nav> parent, non della viewport
+		const navEl = wrapperRef.current.closest("nav");
+		if (!navEl) return;
+
+		const navRect = navEl.getBoundingClientRect();
+		const navCenter = navRect.left + navRect.width / 2;
+
 		const wrapperWidth = wrapperRef.current.offsetWidth;
-		const viewportCenter = window.innerWidth / 2;
 		const wrapperCenter = initialLeft.current + wrapperWidth / 2;
-		const offset = viewportCenter - wrapperCenter;
+		const offset = navCenter - wrapperCenter;
 
 		gsap.to(wrapperRef.current, {
 			x: offset,
