@@ -5,6 +5,7 @@ import Footer from "./components/sections/Footer";
 import Features from "./components/sections/Features";
 import TechStack from "./components/sections/TechStack";
 import About from "./components/sections/About";
+import Projects from "./components/sections/Projects";
 
 export default function Home() {
 	return (
@@ -14,6 +15,7 @@ export default function Home() {
 			<Features />
 			<TechStack />
 			<About />
+			<Projects />
 			<Footer />
 		</>
 	);

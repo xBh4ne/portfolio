@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
 				protocol: "https",
 				hostname: "skillicons.dev",
 			},
+			{
+				protocol: "https",
+				hostname: "lipsum.app",
+			},
 		],
 	},
 
