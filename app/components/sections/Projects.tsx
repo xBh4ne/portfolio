@@ -34,7 +34,7 @@ const projects = [
 
 export default function Projects() {
 	return (
-		<section className="px-5 mt-80">
+		<section className="px-5 mt-80" id="Projects">
 			<div className="container mx-auto ">
 				<div className="flex flex-col gap-20">
 					<div className="flex justify-between items-center ">

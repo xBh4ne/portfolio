@@ -1,6 +1,6 @@
 export default function About() {
 	return (
-		<section className="px-5">
+		<section className="px-5" id="About Me">
 			<div className="container mx-auto">
 				<div className="grid grid-cols-2 gap-5">
 					<div>

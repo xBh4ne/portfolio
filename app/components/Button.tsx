@@ -17,7 +17,7 @@ export default function Button({
 		<button
 			type={submit ? "submit" : "button"}
 			onClick={onClick}
-			className={` ${addClass} align-middle items-center flex gap-3 cursor-pointer bg-black text-xl text-white px-8 py-4 rounded-full font-bebas`}
+			className={` ${addClass} hover:bg-white border border-black hover:text-black transition duration-200 align-middle items-center flex gap-3 cursor-pointer bg-black text-xl text-white px-8 py-4 rounded-full font-bebas`}
 		>
 			{children}
 			{arrow && <ArrowRightCircle />}

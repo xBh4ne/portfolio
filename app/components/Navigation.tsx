@@ -175,7 +175,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		"Tech Stack",
 		"About Me",
 		"Projects",
-		"Contact me",
+		"Contact Me",
 	];
 
 	return (

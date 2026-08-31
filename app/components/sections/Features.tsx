@@ -23,7 +23,7 @@ const columns = [
 
 export default function Features() {
 	return (
-		<section className="my-20 px-5">
+		<section className="my-20 px-5" id="Features">
 			<div className="container mx-auto">
 				<div className="flex justify-between items-center gap-10  with-separator">
 					{columns.map((column) => (

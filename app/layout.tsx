@@ -3,7 +3,7 @@ import "./globals.css";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
-		<html lang="it">
+		<html lang="it" className="scroll-smooth">
 			<head>
 				<meta charSet="utf-8" />
 				<link rel="stylesheet" href="src/styles/global.css" />

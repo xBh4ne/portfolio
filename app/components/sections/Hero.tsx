@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "../Button";
 import HeroSideChips from "../HeroSideChips";
+import Link from "next/link";
 
 export default function Hero() {
 	return (
@@ -21,7 +22,9 @@ export default function Hero() {
 							clean code and experiences that don&apos;t just capture attention,
 							but turn every visitor into a client.
 						</p>
-						<Button arrow>Contact Me</Button>
+						<Button arrow>
+							<a href="#Contact Me">Contact Me</a>
+						</Button>
 					</div>
 					<HeroSideChips />
 					<Image
