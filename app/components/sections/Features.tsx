@@ -25,7 +25,7 @@ export default function Features() {
 	return (
 		<section className="my-20 px-5" id="Features">
 			<div className="container mx-auto">
-				<div className="flex justify-between items-center gap-10  with-separator">
+				<div className="flex justify-between items-center gap-10 max-md:flex-wrap with-separator">
 					{columns.map((column) => (
 						<div key={column.description} className="flex flex-col gap-5">
 							<h6>{column.title}</h6>

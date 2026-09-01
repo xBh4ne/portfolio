@@ -7,9 +7,12 @@ const heroSideChips = [
 
 export default function HeroSideChips() {
 	return (
-		<div className="flex-col flex  gap-12">
+		<div className="flex-col flex  gap-12 max-md:flex-row max-md:flex-wrap ">
 			{heroSideChips.map((chip) => (
-				<div key={chip.description} className="flex flex-col items-end">
+				<div
+					key={chip.description}
+					className="flex flex-col items-end max-md:items-start"
+				>
 					<h2>{chip.title}</h2>
 					<p>{chip.description}</p>
 				</div>

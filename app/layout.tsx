@@ -62,7 +62,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="it" className="scroll-smooth">
-			<body className="bg-white h-auto">{children}</body>
+			<body className="bg-white h-auto ">
+				{children}
+			</body>
 		</html>
 	);
 }

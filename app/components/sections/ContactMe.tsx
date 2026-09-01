@@ -36,7 +36,7 @@ export default function ContactMe() {
 	return (
 		<section className="px-5 mt-80" id="Contact Me">
 			<div className="container mx-auto">
-				<div className="grid grid-cols-2">
+				<div className="grid grid-cols-2 gap-20 max-md:grid-cols-1">
 					<div className="flex flex-col gap-5">
 						<h2>Get In Touch</h2>
 						<div className="flex flex-col items-start gap-8">
@@ -85,7 +85,7 @@ export default function ContactMe() {
 					</div>
 
 					<form onSubmit={handleSubmit} className="flex flex-col gap-8">
-						<div className="flex gap-4">
+						<div className="flex gap-4 max-md:flex-wrap">
 							<div className="flex flex-col gap-2 w-full">
 								<label className="label" htmlFor="name">
 									<h6>Name</h6>

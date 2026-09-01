@@ -42,7 +42,7 @@ export default function Projects() {
 		<section className="px-5 mt-80" id="Projects">
 			<div className="container mx-auto ">
 				<div className="flex flex-col gap-20">
-					<div className="flex justify-between items-center ">
+					<div className="flex justify-between items-center max-md:flex-wrap gap-5">
 						<h2>Projects</h2>
 						<p>
 							Explore my recent web development projects, and discover how i can
@@ -51,38 +51,44 @@ export default function Projects() {
 					</div>
 
 					{projects.map((project) => (
-						<div key={project.name} className="flex flex-col gap-5 ">
+						<div
+							key={project.name}
+							className="flex flex-col gap-5 max-md:border-b max-md:pb-5 border-gray-300"
+						>
 							<Image
 								unoptimized
-								className="w-full h-150  object-cover object-top border border-gray-300 rounded-4xl overflow-clip"
+								className="w-full h-180  object-cover object-top border border-gray-300 rounded-4xl max-md:rounded-2xl overflow-clip max-md:h-50"
 								height={1000}
 								width={1000}
 								alt={project.name}
 								src={project.image}
 							/>
 
-							<div className="flex justify-between items-center gap-10">
+							<div className="flex justify-between items-center gap-10 max-md:gap-5 max-md:flex-wrap w-full">
 								<h3>{project.name}</h3>
-								<div className="flex gap-10 items-center">
+								<div className="flex gap-10 items-center   max-md:flex-wrap max-md:gap-5">
 									<p>{project.description}</p>
-									<p>{project.year}</p>
 
-									{project.url ? (
-										<a
-											rel="noopener noreferrer"
-											target="_blank"
-											href={project.url}
-										>
-											<Button external>Visit</Button>
-										</a>
-									) : (
-										<Button
-											disabled
-											addClass=" disabled:opacity-70 disabled:cursor-not-allowed! hover:bg-black! hover:text-white!"
-										>
-											Offline
-										</Button>
-									)}
+									<div className="flex w-auto max-md:justify-between max-md:w-full justify-end items-center gap-10 max-md:gap-5">
+										<p>{project.year}</p>
+
+										{project.url ? (
+											<a
+												rel="noopener noreferrer"
+												target="_blank"
+												href={project.url}
+											>
+												<Button external>Visit</Button>
+											</a>
+										) : (
+											<Button
+												disabled
+												addClass=" disabled:opacity-70 disabled:cursor-not-allowed! hover:bg-black! hover:text-white!"
+											>
+												Offline
+											</Button>
+										)}
+									</div>
 								</div>
 							</div>
 						</div>

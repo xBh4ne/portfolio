@@ -20,7 +20,7 @@ export default function Header() {
 	}, []);
 
 	return (
-		<header className="flex w-full bg-transparent py-10 sticky top-0 px-5 z-10 pointer-events-none">
+		<header className="flex w-full bg-transparent py-10 max-md:py-3 sticky top-0 px-5 z-10 pointer-events-none">
 			<div className="container mx-auto">
 				<nav className="flex justify-between w-full">
 					<Logo isScrolled={isScrolled} />

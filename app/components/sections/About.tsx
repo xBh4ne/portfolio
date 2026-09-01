@@ -2,7 +2,7 @@ export default function About() {
 	return (
 		<section className="px-5" id="About Me">
 			<div className="container mx-auto">
-				<div className="grid grid-cols-2 gap-5">
+				<div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
 					<div>
 						<h2>Modern Web. Human Touch.</h2>
 					</div>

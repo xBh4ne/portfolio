@@ -48,7 +48,7 @@ export default function ReturnToTop() {
 		<a
 			ref={buttonRef}
 			href="#"
-			className="fixed bottom-10 right-10 opacity-0 pointer-events-none"
+			className="fixed bottom-10 right-10 opacity-0 pointer-events-none max-md:bottom-4 max-md:right-4"
 			style={{ pointerEvents: isScrolled ? "auto" : "none" }}
 		>
 			<Button addClass="px-4! py-8">

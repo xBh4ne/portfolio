@@ -14,26 +14,18 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 	const isAnimating = useRef<boolean>(false);
 	const wrapperRef = useRef<HTMLDivElement>(null);
 
-	/**
-	 * Calcola l'offset X necessario per centrare il wrapper nel viewport.
-	 * Usa getBoundingClientRect() (include il transform GSAP attuale)
-	 * e sottrae il transform già applicato → posizione naturale reale.
-	 * Funziona correttamente anche dopo resize o animazioni precedenti.
-	 */
 	const getCenterOffset = useCallback((): number => {
 		if (!wrapperRef.current) return 0;
 
 		const rect = wrapperRef.current.getBoundingClientRect();
 		const currentX = gsap.getProperty(wrapperRef.current, "x") as number;
 
-		// Posizione centrale del wrapper SENZA il transform GSAP
 		const naturalCenterX = rect.left + rect.width / 2 - currentX;
 		const viewportCenter = window.innerWidth / 2;
 
 		return viewportCenter - naturalCenterX;
 	}, []);
 
-	// Animazione scroll: centra o riporta alla posizione originale
 	useEffect(() => {
 		if (!wrapperRef.current) return;
 
@@ -44,7 +36,6 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		});
 	}, [isScrolled, getCenterOffset]);
 
-	// Resize-safe: ricalcola e riapplica il centro se la finestra cambia
 	useEffect(() => {
 		const handleResize = () => {
 			if (!wrapperRef.current || !isScrolled) return;
@@ -174,19 +165,21 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 			ref={wrapperRef}
 			className={`flex flex-col ${isScrolled ? "items-center" : "items-end"} gap-4 pointer-events-auto`}
 		>
-			<Button onClick={handleClick}>
+			<Button onClick={handleClick} addClass="max-md:p-4">
 				{isOpen ? (
 					<>
-						{!isScrolled && "Close"} <X />
+						{!isScrolled && <span className="max-md:hidden">Close</span>}
+						<X />
 					</>
 				) : (
 					<>
-						{!isScrolled && "Menu"} <Menu />
+						{!isScrolled && <span className="max-md:hidden">Menu</span>}
+						<Menu />
 					</>
 				)}
 			</Button>
 
-			<div className="absolute top-30 hidden bg-black text-white! rounded-4xl p-6 w-80 shadow-lg gsap">
+			<div className="absolute top-30 max-md:top-20 hidden bg-black text-white! rounded-4xl p-6 w-80 shadow-lg gsap">
 				<nav>
 					<ul>
 						{menuVoices.map((menuVoice) => (

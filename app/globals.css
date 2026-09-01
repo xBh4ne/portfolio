@@ -110,13 +110,13 @@ a:hover {
 }
 
 .input {
-	@apply p-6 border-gray-300 bg-white border rounded-2xl text-xl font-instrument;
+	@apply p-6 border-gray-300 bg-white border rounded-2xl text-xl font-instrument max-md:p-4;
 }
 
 @layer components {
 	.with-separator > *:not(:last-child) {
 		position: relative;
-		padding-right: 2.5rem; /* spazio per il separatore */
+		padding-right: 2.5rem;
 	}
 
 	.with-separator > *:not(:last-child)::after {
