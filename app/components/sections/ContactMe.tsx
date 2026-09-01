@@ -95,7 +95,7 @@ export default function ContactMe() {
 									name="name"
 									type="text"
 									required
-									placeholder="Jason Bini"
+									placeholder="Jhon Doe"
 									value={form.name}
 									onChange={handleChange}
 									className="input"
@@ -110,7 +110,7 @@ export default function ContactMe() {
 									name="email"
 									type="email"
 									required
-									placeholder="jason@example.com"
+									placeholder="jhondoe@example.com"
 									value={form.email}
 									onChange={handleChange}
 									className="input"
@@ -143,7 +143,7 @@ export default function ContactMe() {
 								name="message"
 								required
 								rows={6}
-								placeholder="Tell me about your project..."
+								placeholder="Tell me about your dream project..."
 								value={form.message}
 								onChange={handleChange}
 								className="input resize-none"
