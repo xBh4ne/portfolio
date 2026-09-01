@@ -4,6 +4,7 @@ import Button from "../Button";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import DownloadCV from "../DownloadCV";
 
 export default function ContactMe() {
 	// ✅ Tutto dentro il componente
@@ -36,9 +37,10 @@ export default function ContactMe() {
 		<section className="px-5 mt-80" id="Contact Me">
 			<div className="container mx-auto">
 				<div className="grid grid-cols-2">
-					<div className="flex flex-col gap-16">
+					<div className="flex flex-col gap-5">
 						<h2>Get In Touch</h2>
-						<div className="flex flex-col gap-8">
+						<div className="flex flex-col items-start gap-8">
+							<DownloadCV />
 							<div>
 								<h6>Email:</h6>
 								<p>jasonbini@tuta.io</p>

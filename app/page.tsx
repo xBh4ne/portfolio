@@ -7,6 +7,8 @@ import TechStack from "./components/sections/TechStack";
 import About from "./components/sections/About";
 import Projects from "./components/sections/Projects";
 import ContactMe from "./components/sections/ContactMe";
+import ReturnToTop from "./components/ReturnToTop";
+
 
 export default function Home() {
 	return (
@@ -19,6 +21,7 @@ export default function Home() {
 			<Projects />
 			<ContactMe />
 			<Footer />
+			<ReturnToTop />
 		</>
 	);
 }

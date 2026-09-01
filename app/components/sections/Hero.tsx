@@ -3,6 +3,7 @@ import Button from "../Button";
 import HeroSideChips from "../HeroSideChips";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
+import DownloadCV from "../DownloadCV";
 
 export default function Hero() {
 	return (
@@ -27,9 +28,12 @@ export default function Hero() {
 							clean code and experiences that don&apos;t just capture attention,
 							but turn every visitor into a client.
 						</p>
-						<a href="#Contact Me">
-							<Button arrow>Contact Me</Button>
-						</a>
+						<div className="flex gap-5">
+							<a href="#Contact Me">
+								<Button arrow>Contact Me</Button>
+							</a>
+							<DownloadCV />
+						</div>
 					</div>
 					<HeroSideChips />
 					<Image

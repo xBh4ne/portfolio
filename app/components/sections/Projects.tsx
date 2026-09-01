@@ -4,36 +4,36 @@ import { url } from "node:inspector/promises";
 
 const projects = [
 	{
-		name: "Aurum Studio",
+		name: "Sarnano Comix",
 		description:
-			"Brand identity and landing page for a luxury interior design studio based in Milan. Built with Next.js and GSAP animations.",
-		year: 2025,
-		image: "https://lipsum.app/id/12/1600x900",
-		url: "#",
+			"An event website for a local comic and pop-culture festival at Sarnano, featuring the program, guests, and all the practical info visitors need.",
+		year: 2023,
+		image: "/images/projects/sarnanocomix.png",
+		url: "https://www.sarnanocomix.it",
 	},
 	{
-		name: "Trackly",
+		name: "Ostudio",
 		description:
-			"A minimalist habit tracking web app with a clean dashboard, streak system and weekly reports. Built with React, TypeScript and Supabase.",
-		year: 2025,
-		image: "https://lipsum.app/id/47/1600x900",
-		url: "#",
-	},
-	{
-		name: "Folio OS",
-		description:
-			"An interactive portfolio concept designed as a desktop operating system, with draggable windows and a custom file explorer.",
+			"A clean, elegant website for an architecture studio based in Venice, showcasing its projects, approach, and studio identity.",
 		year: 2024,
-		image: "https://lipsum.app/id/83/1600x900",
-		url: "#",
+		image: "/images/projects/ostudio.png",
+		url: "https://www.ostudio.it",
 	},
 	{
-		name: "Mercato",
+		name: "Hoverbox",
 		description:
-			"A fullstack e-commerce platform for local artisan food producers, featuring a custom CMS, cart system and Stripe payments.",
-		year: 2024,
-		image: "https://lipsum.app/id/61/1600x900",
-		url: "#",
+			"A one-page landing site for a small two-person web design service offering simple, fixed-price websites to clients without the overhead of a registered business.",
+		year: 2022,
+		image: "/images/projects/hoverbox.png",
+		url: "",
+	},
+	{
+		name: "Recap",
+		description:
+			'A high-school computer science project exploring the idea of "burying" digital time capsules by archiving your memories online instead of in the ground.',
+		year: 2020,
+		image: "/images/projects/recap.png",
+		url: "",
 	},
 ];
 
@@ -51,24 +51,38 @@ export default function Projects() {
 					</div>
 
 					{projects.map((project) => (
-						<div key={project.name} className="flex flex-col gap-5">
+						<div key={project.name} className="flex flex-col gap-5 ">
 							<Image
 								unoptimized
-								className="w-full h-150 rounded-4xl object-cover"
+								className="w-full h-150  object-cover object-top border border-gray-300 rounded-4xl overflow-clip"
 								height={1000}
 								width={1000}
 								alt={project.name}
 								src={project.image}
 							/>
 
-							<div className="flex justify-between items-center">
+							<div className="flex justify-between items-center gap-10">
 								<h3>{project.name}</h3>
 								<div className="flex gap-10 items-center">
 									<p>{project.description}</p>
 									<p>{project.year}</p>
-									<a href={project.url}>
-										<Button>Visit</Button>
-									</a>
+
+									{project.url ? (
+										<a
+											rel="noopener noreferrer"
+											target="_blank"
+											href={project.url}
+										>
+											<Button external>Visit</Button>
+										</a>
+									) : (
+										<Button
+											disabled
+											addClass=" disabled:opacity-70 disabled:cursor-not-allowed! hover:bg-black! hover:text-white!"
+										>
+											Offline
+										</Button>
+									)}
 								</div>
 							</div>
 						</div>

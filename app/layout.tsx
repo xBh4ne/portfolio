@@ -1,17 +1,22 @@
-import { Braces } from "lucide-react";
+import type { Metadata } from "next";
 import "./globals.css";
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export const metadata: Metadata = {
+	title: "Jason Bini",
+	description: "Portfolio",
+	icons: {
+		icon: "/favicon.svg",
+	},
+};
+
+export default function RootLayout({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	return (
 		<html lang="it" className="scroll-smooth">
-			<head>
-				<meta charSet="utf-8" />
-				<link rel="stylesheet" href="src/styles/global.css" />
-				<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
-				<meta name="viewport" content="width=device-width" />
-				<title>Jason Bini</title>
-			</head>
-			<body className="bg-white">{children}</body>
+			<body className="bg-white h-auto">{children}</body>
 		</html>
 	);
 }

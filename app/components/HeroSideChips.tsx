@@ -1,6 +1,6 @@
 const heroSideChips = [
 	{ title: "1+", description: "Years Experience" },
-	{ title: "3+", description: "Projects Delivered" },
+	{ title: "4+", description: "Projects Delivered" },
 	{ title: "*95%", description: "Clients Satisfaction" },
 	{ title: "4", description: "Total Clients" },
 ];

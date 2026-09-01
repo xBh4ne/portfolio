@@ -1,0 +1,59 @@
+"use client";
+
+import Button from "./Button";
+import { ArrowBigUp } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+
+export default function ReturnToTop() {
+	const [isScrolled, setIsScrolled] = useState<boolean>(false);
+	const buttonRef = useRef<HTMLAnchorElement>(null);
+
+	useEffect(() => {
+		setIsScrolled(window.scrollY > 0);
+
+		const handleScroll = () => {
+			setIsScrolled(window.scrollY > 0);
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
+	// ✅ Anima ogni volta che isScrolled cambia
+	useEffect(() => {
+		if (!buttonRef.current) return;
+
+		if (isScrolled) {
+			// Entra dal basso verso l'alto
+			gsap.fromTo(
+				buttonRef.current,
+				{ y: 80, opacity: 0 },
+				{ y: 0, opacity: 1, duration: 0.5, ease: "power2.out" },
+			);
+		} else {
+			// Esce verso il basso
+			gsap.to(buttonRef.current, {
+				y: 80,
+				opacity: 0,
+				duration: 0.3,
+				ease: "power2.in",
+			});
+		}
+	}, [isScrolled]);
+
+	return (
+		// ✅ Non usiamo più il conditional render {isScrolled && ...}
+		// perché GSAP ha bisogno che l'elemento esista nel DOM per animarlo
+		<a
+			ref={buttonRef}
+			href="#"
+			className="fixed bottom-10 right-10 opacity-0 pointer-events-none"
+			style={{ pointerEvents: isScrolled ? "auto" : "none" }}
+		>
+			<Button addClass="px-4! py-8">
+				<ArrowBigUp />
+			</Button>
+		</a>
+	);
+}
