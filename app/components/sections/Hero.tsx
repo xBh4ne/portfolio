@@ -39,7 +39,7 @@ export default function Hero() {
 					<Image
 						width={1000}
 						height={1000}
-						className="object-top object-cover h-[90vh] w-162 absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-b-full  sepia-40"
+						className="object-top object-cover h-[90vh] w-162 absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-b-full  sepia-30"
 						alt="hero-image"
 						src="/images/hero-image.png"
 						priority
