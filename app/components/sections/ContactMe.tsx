@@ -7,7 +7,6 @@ import Image from "next/image";
 import DownloadCV from "../DownloadCV";
 
 export default function ContactMe() {
-	// ✅ Tutto dentro il componente
 	const [form, setForm] = useState({
 		name: "",
 		email: "",

@@ -2,40 +2,38 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://www.jasonbini.dev"),
+
 	title: "Jason Bini | Junior Fullstack Web Developer",
 	description:
 		"Portfolio of Jason Bini, a Junior Fullstack Web Developer based in Italy. Specializing in React, Next.js, TypeScript and modern web design. Available for freelance projects.",
-	keywords: [
-		// English
-		"Jason Bini",
-		"Fullstack Developer",
-		"Junior Developer",
-		"Web Developer Italy",
-		"React Developer",
-		"Next.js Developer",
-		"TypeScript",
-		"Frontend Developer",
-		"Backend Developer",
-		"UI Design",
-		"Web Design",
-		"Freelance Developer",
-		"Portfolio",
-		// Italiano
-		"Sviluppatore Web",
-		"Sviluppatore Fullstack",
-		"Sviluppatore Junior",
-		"Sviluppatore React",
-		"Sviluppatore Italia",
-		"Sviluppatore Freelance",
-		"Siti Web",
-		"Progettazione Web",
-		"Portfolio Sviluppatore",
-	],
+
 	authors: [{ name: "Jason Bini" }],
 	creator: "Jason Bini",
-	icons: {
-		icon: "/favicon.svg",
+
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			"max-image-preview": "large",
+			"max-snippet": -1,
+		},
 	},
+
+	alternates: {
+		canonical: "/",
+	},
+
+	icons: {
+		icon: [
+			{ url: "/favicon.ico", sizes: "any" },
+			{ url: "/favicon.svg", type: "image/svg+xml" },
+		],
+		apple: "/apple-touch-icon.png",
+	},
+
 	openGraph: {
 		title: "Jason Bini | Junior Fullstack Web Developer",
 		description:
@@ -43,15 +41,24 @@ export const metadata: Metadata = {
 		url: "https://www.jasonbini.dev",
 		siteName: "Jason Bini Portfolio",
 		locale: "en_US",
-		alternateLocale: "it_IT",
 		type: "website",
+		images: [
+			{
+				url: "/og-image.png",
+				width: 1200,
+				height: 630,
+				alt: "Jason Bini - Fullstack Web Developer Portfolio",
+			},
+		],
 	},
+
 	twitter: {
 		card: "summary_large_image",
 		title: "Jason Bini | Junior Fullstack Web Developer",
 		description:
 			"Portfolio of Jason Bini, a Junior Fullstack Web Developer based in Italy.",
 		creator: "@jasonbini",
+		images: ["/og-image.png"],
 	},
 };
 
@@ -61,10 +68,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="it" className="scroll-smooth">
-			<body className="bg-white h-auto ">
-				{children}
-			</body>
+		<html lang="en" className="scroll-smooth">
+			<body className="bg-white h-auto">{children}</body>
 		</html>
 	);
 }
