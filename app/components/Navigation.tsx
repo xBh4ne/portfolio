@@ -4,6 +4,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import Button from "../components/Button";
 import { gsap } from "gsap";
 import { X, Menu } from "lucide-react";
+import { useGSAP } from "@gsap/react";
 
 interface NavigationProps {
 	isScrolled: boolean;
@@ -26,29 +27,32 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		return viewportCenter - naturalCenterX;
 	}, []);
 
-	useEffect(() => {
-		if (!wrapperRef.current) return;
+	useGSAP(
+		() => {
+			if (!wrapperRef.current) return;
 
-		gsap.to(wrapperRef.current, {
-			x: isScrolled ? getCenterOffset() : 0,
-			ease: "elastic.out(0.3, 0.8)",
-			duration: 1,
-		});
-	}, [isScrolled, getCenterOffset]);
-
-	useEffect(() => {
-		const handleResize = () => {
-			if (!wrapperRef.current || !isScrolled) return;
+			// Animazione principale al cambio di isScrolled
 			gsap.to(wrapperRef.current, {
-				x: getCenterOffset(),
-				duration: 0.3,
-				ease: "power2.out",
+				x: isScrolled ? getCenterOffset() : 0,
+				ease: "elastic.out(0.3, 0.8)",
+				duration: 1,
 			});
-		};
 
-		window.addEventListener("resize", handleResize);
-		return () => window.removeEventListener("resize", handleResize);
-	}, [isScrolled, getCenterOffset]);
+			// Resize handler
+			const handleResize = () => {
+				if (!wrapperRef.current || !isScrolled) return;
+				gsap.to(wrapperRef.current, {
+					x: getCenterOffset(),
+					duration: 0.3,
+					ease: "power2.out",
+				});
+			};
+
+			window.addEventListener("resize", handleResize);
+			return () => window.removeEventListener("resize", handleResize);
+		},
+		{ dependencies: [isScrolled, getCenterOffset], scope: wrapperRef },
+	);
 
 	function closeMenu() {
 		if (!isOpen || isAnimating.current) return;

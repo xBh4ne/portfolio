@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Logo from "../Logo";
 import Navigation from "../Navigation";
 
+
 export default function Header() {
 	const [isScrolled, setIsScrolled] = useState<boolean>(false);
 

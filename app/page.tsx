@@ -9,6 +9,9 @@ import ContactMe from "./components/sections/ContactMe";
 import ReturnToTop from "./components/ReturnToTop";
 import Script from "next/script";
 
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
 // ─── JSON-LD ───────────────────────────────────────────────
 const jsonLd = {
 	"@context": "https://schema.org",
