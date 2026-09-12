@@ -91,7 +91,7 @@ h6 {
 /* ---- Body text ---- */
 
 p {
-	@apply font-instrument text-2xl text-gray leading-relaxed;
+	@apply font-instrument text-2xl text-gray  tracking-wider leading-10;
 }
 
 .subtitle {
