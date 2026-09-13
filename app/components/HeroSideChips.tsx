@@ -1,14 +1,12 @@
-const heroSideChips = [
-	{ title: "1+", description: "Years Experience" },
-	{ title: "4+", description: "Projects Delivered" },
-	{ title: "*95%", description: "Clients Satisfaction" },
-	{ title: "4", description: "Total Clients" },
-];
+import data from "@/locales/en.json";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function HeroSideChips() {
+	const { t } = useLanguage();
+
 	return (
 		<div className="flex-col flex  gap-12 max-md:flex-row max-md:flex-wrap ">
-			{heroSideChips.map((chip) => (
+			{t.hero.heroSideChips.map((chip: any) => (
 				<div
 					key={chip.description}
 					className="flex flex-col items-end max-md:items-start"

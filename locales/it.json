@@ -1,0 +1,155 @@
+{
+	"navbar": {
+		"logo": "Jason Bini",
+		"menu": {
+			"label": {
+				"open": "Menu",
+				"close": "Chiudi"
+			},
+			"voices": ["Home", "Tech Stack", "Chi Sono", "Progetti", "Contattami"]
+		}
+	},
+
+	"hero": {
+		"overTitle": "Ciao, sono Jason",
+		"title": {
+			"partOne": "Un Junior",
+			"highlight": "Fullstack",
+			"partTwo": "Web Developer"
+		},
+		"description": "Creo esperienze digitali che fanno colpo, si caricano in un attimo e trasformano chi visita il tuo sito in un cliente. Codice solido, design ragionato e un unico obiettivo: far crescere il tuo business.",
+		"buttons": {
+			"primary": "Lavoriamo Insieme",
+			"secondary": "Scarica il CV"
+		},
+		"heroSideChips": [
+			{ "title": "1+", "description": "Anni di Esperienza" },
+			{ "title": "4+", "description": "Progetti Consegnati" },
+			{ "title": "95%", "description": "Clienti Soddisfatti" },
+			{ "title": "4", "description": "Clienti Totali" }
+		]
+	},
+
+	"features": [
+		{
+			"title": "Design su Misura per l'Utente",
+			"description": "Niente è lasciato al caso. Progetto interfacce che risultano naturali da usare, eliminano le complessità e portano l'utente dritto al punto."
+		},
+		{
+			"title": "Identità Visiva e Strategia",
+			"description": "Un brand non è solo un logo. Costruisco identità visive che parlano di te e danno alle persone un motivo concreto per sceglierti."
+		},
+		{
+			"title": "Codice Pulito e Responsive",
+			"description": "Veloce, ordinato e pensato prima per il mobile. Il tuo sito funzionerà alla perfezione su qualsiasi schermo, senza eccezioni."
+		},
+		{
+			"title": "Sviluppo che Porta Risultati",
+			"description": "Un sito bello non basta se non converte. Costruisco esperienze pensate per trasformare chi naviga in chi compra."
+		}
+	],
+
+	"techStack": {
+		"description": "Strumenti scelti uno per uno per costruire siti moderni e scalabili.",
+		"stacks": [
+			"html",
+			"css",
+			"javascript",
+			"typescript",
+			"tailwind",
+			"react",
+			"nextjs",
+			"astro",
+			"nodejs",
+			"git",
+			"github",
+			"figma",
+			"vscode"
+		]
+	},
+
+	"about": {
+		"title": "Web Moderno. Approccio Umano.",
+		"subtitle": "Sono Jason Bini, un Junior Fullstack Web Developer che lavora dall'Italia.",
+		"description": "Mi occupo di applicazioni web moderne e performanti, con un'attenzione particolare alla user experience e all'identità di brand. Sul frontend lavoro con React, Next.js, TypeScript e Tailwind CSS, supportati da strumenti backend che tengono tutto in ordine dietro le quinte. Ho iniziato a fare sviluppo web perché mi affascinava l'idea che con internet puoi raccontare storie, creare connessioni e far crescere attività reali. Quella curiosità non se n'è mai andata, è diventata il mio lavoro. Oggi affronto ogni progetto come una sfida a sé, da risolvere con creatività e competenza tecnica. Continuo a studiare, a migliorarmi e a cercare progetti che abbiano un impatto vero sulla vita delle persone."
+	},
+
+	"projects": {
+		"title": "Progetti",
+		"description": "Una selezione di progetti veri, progettati e sviluppati da zero.",
+		"buttons": {
+			"visit": "Visita",
+			"offline": "Offline"
+		},
+		"items": [
+			{
+				"name": "Ostudio",
+				"description": "Un sito essenziale ed elegante per uno studio di architettura con sede a Venezia. Pensato per riflettere il loro stile e valorizzare i progetti con la cura che meritano.",
+				"year": 2024,
+				"image": "/images/projects/ostudio.png",
+				"url": "https://www.ostudio.it"
+			},
+			{
+				"name": "Sarnano Comix",
+				"description": "Il sito di un festival locale dedicato al fumetto e alla cultura pop a Sarnano. Programma completo, ospiti, info pratiche: tutto quello che serve per organizzare la visita.",
+				"year": 2023,
+				"image": "/images/projects/sarnanocomix.png",
+				"url": "https://www.sarnanocomix.it"
+			},
+			{
+				"name": "Hoverbox",
+				"description": "Una landing page diretta per un piccolo servizio di web design in due, con siti a prezzo fisso per chi cerca qualità senza troppi giri.",
+				"year": 2022,
+				"image": "/images/projects/hoverbox.png",
+				"url": ""
+			},
+			{
+				"name": "Recap",
+				"description": "Un progetto nato a scuola durante le ore di informatica, basato sull'idea di creare capsule del tempo digitali: archiviare i propri ricordi online invece di seppellirli sotto terra.",
+				"year": 2020,
+				"image": "/images/projects/recap.png",
+				"url": ""
+			}
+		]
+	},
+
+	"contactMe": {
+		"title": "Costruiamo Qualcosa Insieme",
+		"downloadCv": "Scarica il CV",
+		"contacts": [
+			{ "label": "Email", "info": "jasonbini@tuta.io" },
+			{ "label": "Telefono", "info": "+39 3334343274" },
+			{ "label": "Dove mi trovo", "info": "Tolentino (MC), Italia" }
+		],
+		"social": {
+			"label": "Trovami Online",
+			"items": [
+				{ "link": "https://github.com/xBh4ne", "icon": "github" },
+				{ "link": "https://www.linkedin.com/in/jasonbini/", "icon": "linkedin" }
+			]
+		},
+		"form": {
+			"name": { "label": "Nome e Cognome", "placeholder": "Mario Rossi" },
+			"email": {
+				"label": "Indirizzo Email",
+				"placeholder": "mario@esempio.com"
+			},
+			"subject": {
+				"label": "Oggetto",
+				"placeholder": "Ho un progetto in mente"
+			},
+			"message": {
+				"label": "Messaggio",
+				"placeholder": "Raccontami del progetto, le tempistiche e gli obiettivi"
+			},
+			"submit": {
+				"label": "Invia Messaggio",
+				"email": "jasonbini@tuta.io"
+			}
+		}
+	},
+
+	"footer": {
+		"copyright": "© 2026 Jason Bini. Tutti i diritti riservati."
+	}
+}

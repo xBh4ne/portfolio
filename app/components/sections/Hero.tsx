@@ -3,13 +3,15 @@
 import Image from "next/image";
 import Button from "../Button";
 import HeroSideChips from "../HeroSideChips";
-import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import DownloadCV from "../DownloadCV";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
+	const { t } = useLanguage();
+
 	useGSAP(() => {
 		const tl = gsap.timeline({ delay: 1 });
 
@@ -21,52 +23,27 @@ export default function Hero() {
 		})
 			.from(
 				"#hero-image",
-				{
-					y: -300,
-					duration: 1,
-					opacity: 0,
-					ease: "power2.out",
-				},
+				{ y: -300, duration: 1, opacity: 0, ease: "power2.out" },
 				"-=80%",
 			)
 			.from(
 				"#hero-title",
-				{
-					y: 100,
-					duration: 1,
-					opacity: 0,
-					ease: "power2.out",
-				},
+				{ y: 100, duration: 1, opacity: 0, ease: "power2.out" },
 				"-=50%",
 			)
 			.from(
 				"#hero-side-chips",
-				{
-					x: 100,
-					duration: 1,
-					opacity: 0,
-					ease: "power2.out",
-				},
+				{ x: 100, duration: 1, opacity: 0, ease: "power2.out" },
 				"-=90%",
 			)
 			.from(
 				"#hero-subtitle",
-				{
-					y: 100,
-					duration: 1,
-					opacity: 0,
-					ease: "power2.out",
-				},
+				{ y: 100, duration: 1, opacity: 0, ease: "power2.out" },
 				"-=50%",
 			)
 			.from(
 				"#hero-button-group",
-				{
-					y: 100,
-					duration: 1,
-					opacity: 0,
-					ease: "power2.out",
-				},
+				{ y: 100, duration: 1, opacity: 0, ease: "power2.out" },
 				"-=50%",
 			)
 			.from("#hero-chevron", { opacity: 0, duration: 0.5 }, "-=30%")
@@ -83,34 +60,32 @@ export default function Hero() {
 
 	return (
 		<section className="px-5" id="Home">
-			<div className="container mx-auto">
-				<div className="flex flex-col items-center gap-3 mt-10 absolute left-1/2 -translate-x-1/2 bottom-8 max-md:hidden">
+			<div className="container mx-auto relative">
+				<div className="flex flex-col items-center gap-3 mt-10 absolute left-1/2 -translate-x-1/2 bottom-28 max-md:hidden">
 					<ChevronDown id="hero-chevron" className="text-gray" />
 				</div>
 
-				<div className=" flex w-full h-[80vh] justify-between items-center max-md:h-auto max-md:py-20 max-md:flex-col max-md:items-start gap-10">
-					<div className="flex flex-col items-start w-1/3  gap-5 max-md:w-full">
+				<div className="flex w-full h-[110vh] justify-between items-center max-md:h-auto max-md:py-20 max-md:flex-col max-md:items-start gap-10">
+					<div className="flex flex-col items-start w-1/3 gap-5 max-md:w-full">
 						<span
 							id="hero-overtitle"
-							className="font-instrument text-4xl text-black "
+							className="font-instrument text-4xl text-black"
 						>
-							Hey, I&apos;m Jason,
+							{t.hero.overTitle}
 						</span>
 						<h1 id="hero-title">
-							A Junior
-							<span className="font-libre block text-primary">Fullstack</span>
-							Web Developer
+							{t.hero.title.partOne}
+							<span className="font-libre block text-primary">
+								{t.hero.title.highlight}
+							</span>
+							{t.hero.title.partTwo}
 						</h1>
-						<p id="hero-subtitle">
-							Every brand has a story. I help you tell it, through bold design,
-							clean code and experiences that don&apos;t just capture attention,
-							but turn every visitor into a client.
-						</p>
+						<p id="hero-subtitle">{t.hero.description}</p>
 						<div id="hero-button-group" className="flex gap-5 flex-wrap">
 							<a href="#Contact Me">
-								<Button arrow>Contact Me</Button>
+								<Button arrow>{t.hero.buttons.primary}</Button>
 							</a>
-							<DownloadCV />
+							<DownloadCV>{t.hero.buttons.secondary}</DownloadCV>
 						</div>
 					</div>
 					<div id="hero-side-chips">
@@ -120,7 +95,7 @@ export default function Hero() {
 						id="hero-image"
 						width={1000}
 						height={1000}
-						className="object-top object-cover h-[90vh] w-162 absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-b-full  sepia-30 max-md:hidden"
+						className="object-top object-cover h-[90vh] w-162 absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-b-full sepia-30 max-md:hidden"
 						alt="hero-image"
 						src="/images/hero-image.png"
 						priority

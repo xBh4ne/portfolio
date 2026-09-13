@@ -1,7 +1,13 @@
-// components/icons/JasonBiniLogo.tsx
-export default function JasonBiniLogo({ className }: { className?: string }) {
+export default function JasonBiniLogo({
+	className,
+	id,
+}: {
+	className?: string;
+	id?: string;
+}) {
 	return (
 		<svg
+			id={id}
 			className={className}
 			width="1030"
 			height="282"

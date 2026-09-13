@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+,     "context/LanguageContext.tsx"  ],
   "exclude": ["node_modules"]
 }

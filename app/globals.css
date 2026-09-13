@@ -126,7 +126,7 @@ a:hover {
 		top: 50%;
 		transform: translateY(-50%);
 		width: 1px;
-		height: 90%; /* quanto è alto il separatore */
+		height: 90%;
 		background-color: var(--color-gray-300);
 		opacity: 1;
 	}
@@ -135,4 +135,20 @@ a:hover {
 ::selection {
 	background-color: var(--color-primary);
 	color: var(--color-white);
+}
+
+#smooth-wrapper {
+	overflow: hidden;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+#smooth-content {
+	overflow: visible;
+	width: 100%;
 }

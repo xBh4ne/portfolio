@@ -20,19 +20,19 @@ export default function ReturnToTop() {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	// ✅ Anima ogni volta che isScrolled cambia
+	
 	useEffect(() => {
 		if (!buttonRef.current) return;
 
 		if (isScrolled) {
-			// Entra dal basso verso l'alto
+			
 			gsap.fromTo(
 				buttonRef.current,
 				{ y: 80, opacity: 0 },
 				{ y: 0, opacity: 1, duration: 0.5, ease: "power2.out" },
 			);
 		} else {
-			// Esce verso il basso
+			
 			gsap.to(buttonRef.current, {
 				y: 80,
 				opacity: 0,
@@ -43,8 +43,6 @@ export default function ReturnToTop() {
 	}, [isScrolled]);
 
 	return (
-		// ✅ Non usiamo più il conditional render {isScrolled && ...}
-		// perché GSAP ha bisogno che l'elemento esista nel DOM per animarlo
 		<a
 			ref={buttonRef}
 			href="#"

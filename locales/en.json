@@ -1,0 +1,152 @@
+{
+	"navbar": {
+		"logo": "Jason Bini",
+		"menu": {
+			"label": {
+				"open": "Menu",
+				"close": "Close"
+			},
+			"voices": ["Home", "Tech Stack", "About Me", "Projects", "Contact Me"]
+		}
+	},
+
+	"hero": {
+		"overTitle": "Hey, I'm Jason",
+		"title": {
+			"partOne": "A Junior",
+			"highlight": "Fullstack",
+			"partTwo": "Web Developer"
+		},
+		"description": "I design and build digital experiences that look sharp, load fast, and turn visitors into clients. Clean code, intentional design, and a relentless focus on what actually matters: your results.",
+		"buttons": {
+			"primary": "Let's Work Together",
+			"secondary": "Download CV"
+		},
+		"heroSideChips": [
+			{ "title": "1+", "description": "Years of Experience" },
+			{ "title": "4+", "description": "Projects Delivered" },
+			{ "title": "95%", "description": "Client Satisfaction" },
+			{ "title": "4", "description": "Happy Clients" }
+		]
+	},
+
+	"features": [
+		{
+			"title": "User-Centered Design",
+			"description": "Every pixel has a purpose. I design interfaces that feel natural, reduce friction, and guide users exactly where they need to go."
+		},
+		{
+			"title": "Brand Identity & Strategy",
+			"description": "Your brand is more than a logo. I craft visual identities that communicate your values and make people choose you over the competition."
+		},
+		{
+			"title": "Responsive & Modern Code",
+			"description": "Fast, clean, and mobile-first by default. Your product will look and perform flawlessly on every screen, every device, every time."
+		},
+		{
+			"title": "Results-Driven Development",
+			"description": "Good design should pay for itself. I build experiences engineered to convert attention into action and visitors into revenue."
+		}
+	],
+
+	"techStack": {
+		"description": "A carefully chosen toolkit built for modern, scalable web development.",
+		"stacks": [
+			"html",
+			"css",
+			"javascript",
+			"typescript",
+			"tailwind",
+			"react",
+			"nextjs",
+			"astro",
+			"nodejs",
+			"git",
+			"github",
+			"figma",
+			"vscode"
+		]
+	},
+
+	"about": {
+		"title": "Modern Web. Human Touch.",
+		"subtitle": "I'm Jason Bini, a Junior Fullstack Web Developer based in Italy.",
+		"description": "I build modern, high-performance web applications with a strong focus on user experience and brand identity. My stack is centered around React, Next.js, TypeScript and Tailwind CSS on the frontend, paired with backend tools that keep everything running smoothly under the hood. I got into web development because I was fascinated by the internet's power to tell stories, connect people and grow businesses. That fascination never left, it evolved into a professional skill set. Today I bring that same energy to every project I take on, treating each one as a unique problem to solve both creatively and technically. I'm constantly learning, constantly refining my craft and always looking for opportunities to build products that create a real impact for real people."
+	},
+
+	"projects": {
+		"title": "Projects",
+		"description": "A selection of real-world projects I designed and built from the ground up.",
+		"buttons": {
+			"visit": "Visit",
+			"offline": "Offline"
+		},
+		"items": [
+			{
+				"name": "Ostudio",
+				"description": "A refined, minimal website for a Venice-based architecture studio, designed to reflect their aesthetic and present their work with the elegance it deserves.",
+				"year": 2024,
+				"image": "/images/projects/ostudio.png",
+				"url": "https://www.ostudio.it"
+			},
+			{
+				"name": "Sarnano Comix",
+				"description": "A vibrant event website for a local comic and pop-culture festival in Sarnano, covering the full programme, guest lineup and everything visitors need to plan their experience.",
+				"year": 2023,
+				"image": "/images/projects/sarnanocomix.png",
+				"url": "https://www.sarnanocomix.it"
+			},
+			{
+				"name": "Hoverbox",
+				"description": "A focused landing page for a two-person web design service offering straightforward, fixed-price websites for clients who want quality without the complexity.",
+				"year": 2022,
+				"image": "/images/projects/hoverbox.png",
+				"url": ""
+			},
+			{
+				"name": "Recap",
+				"description": "A high-school computer science project built around the concept of digital time capsules, a platform to archive personal memories online instead of burying them in the ground.",
+				"year": 2020,
+				"image": "/images/projects/recap.png",
+				"url": ""
+			}
+		]
+	},
+
+	"contactMe": {
+		"title": "Let's Build Something Together",
+		"downloadCv": "Download CV",
+		"contacts": [
+			{ "label": "Email", "info": "jasonbini@tuta.io" },
+			{ "label": "Phone", "info": "+39 3334343274" },
+			{ "label": "Location", "info": "Tolentino (MC), Italy" }
+		],
+		"social": {
+			"label": "Find Me Online",
+			"items": [
+				{ "link": "https://github.com/xBh4ne", "icon": "github" },
+				{ "link": "https://www.linkedin.com/in/jasonbini/", "icon": "linkedin" }
+			]
+		},
+		"form": {
+			"name": { "label": "Full Name", "placeholder": "John Doe" },
+			"email": { "label": "Email Address", "placeholder": "john@example.com" },
+			"subject": {
+				"label": "Subject",
+				"placeholder": "I have a project in mind"
+			},
+			"message": {
+				"label": "Message",
+				"placeholder": "Tell me about your project, timeline and goals"
+			},
+			"submit": {
+				"label": "Send Message",
+				"email": "jasonbini@tuta.io"
+			}
+		}
+	},
+
+	"footer": {
+		"copyright": "© 2026 Jason Bini. All Rights Reserved."
+	}
+}

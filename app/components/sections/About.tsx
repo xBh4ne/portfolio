@@ -1,31 +1,77 @@
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import SplitText from "gsap/SplitText";
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
 export default function About() {
+	const { t } = useLanguage();
+
+	useGSAP(() => {
+
+		const titleSplit = new SplitText("#about-title", { type: "words" });
+		const subtitleSplit = new SplitText("#about-subtitle", { type: "words" });
+		const descSplit = new SplitText("#about-description", { type: "lines" });
+
+		gsap.from(titleSplit.words, {
+			opacity: 0,
+			x: -50,
+			duration: 0.6,
+			ease: "power2.out",
+			stagger: 0.05,
+			scrollTrigger: {
+				trigger: "#about-title",
+				start: "top 60%",
+				toggleActions: "play none none reverse",
+			},
+		});
+
+		gsap.from(subtitleSplit.words, {
+			opacity: 0,
+			x: 50,
+			duration: 0.5,
+			ease: "power2.out",
+			stagger: 0.04,
+			scrollTrigger: {
+				trigger: "#about-subtitle",
+				start: "top 60%",
+				toggleActions: "play none none reverse",
+			},
+		});
+
+		gsap.from(descSplit.lines, {
+			opacity: 0,
+			x: 50,
+			duration: 0.5,
+			ease: "power2.out",
+			stagger: 0.08,
+			scrollTrigger: {
+				trigger: "#about-description",
+				start: "top 60%",
+				toggleActions: "play none none reverse",
+			},
+		});
+	});
+
 	return (
 		<section className="px-5" id="About Me">
 			<div className="container mx-auto">
 				<div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
 					<div>
-						<h2>Modern Web. Human Touch.</h2>
+						<h2 id="about-title">{t.about.title}</h2>
 					</div>
 					<div className="flex flex-col gap-10">
-						<span className="font-instrument text-4xl text-black">
-							My name is Jason Bini and I'm a Junior Fullstack Web Developer
-							based in Italy.
+						<span
+							id="about-subtitle"
+							className="font-instrument text-4xl text-black"
+						>
+							{t.about.subtitle}
 						</span>
-						<p>
-							"I build modern, high-performance web applications with a strong
-							focus on user experience and brand identity. My stack revolves
-							around React, Next.js, TypeScript and Tailwind CSS on the
-							frontend, paired with backend tools that keep everything running
-							smoothly under the hood. I got into web development because I was
-							fascinated by the power of the internet to tell stories, connect
-							people and grow businesses. That fascination never left, it just
-							evolved into a professional skill set. Today, I channel that
-							energy into every project I work on, treating each one as a unique
-							challenge to solve creatively and technically. I'm constantly
-							learning, constantly improving and constantly looking for
-							opportunities to work on products that make a real difference for
-							real people."
-						</p>
+						<p id="about-description">"{t.about.description}"</p>
 					</div>
 				</div>
 			</div>

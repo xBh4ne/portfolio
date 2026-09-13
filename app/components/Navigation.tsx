@@ -5,6 +5,8 @@ import Button from "../components/Button";
 import { gsap } from "gsap";
 import { X, Menu } from "lucide-react";
 import { useGSAP } from "@gsap/react";
+import data from "@/locales/en.json";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface NavigationProps {
 	isScrolled: boolean;
@@ -14,6 +16,8 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const isAnimating = useRef<boolean>(false);
 	const wrapperRef = useRef<HTMLDivElement>(null);
+
+	const { t } = useLanguage();
 
 	const getCenterOffset = useCallback((): number => {
 		if (!wrapperRef.current) return 0;
@@ -31,14 +35,12 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		() => {
 			if (!wrapperRef.current) return;
 
-			// Animazione principale al cambio di isScrolled
 			gsap.to(wrapperRef.current, {
 				x: isScrolled ? getCenterOffset() : 0,
 				ease: "elastic.out(0.3, 0.8)",
 				duration: 1,
 			});
 
-			// Resize handler
 			const handleResize = () => {
 				if (!wrapperRef.current || !isScrolled) return;
 				gsap.to(wrapperRef.current, {
@@ -113,7 +115,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 					display: "block",
 					duration: 0.5,
 					ease: "power2.out",
-					height: "310",
+					height: "auto",
 					onComplete: () => {
 						isAnimating.current = false;
 					},
@@ -156,14 +158,6 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		});
 	}
 
-	const menuVoices = [
-		"Home",
-		"Tech Stack",
-		"About Me",
-		"Projects",
-		"Contact Me",
-	];
-
 	return (
 		<div
 			ref={wrapperRef}
@@ -172,12 +166,16 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 			<Button onClick={handleClick} addClass="max-md:p-4">
 				{isOpen ? (
 					<>
-						{!isScrolled && <span className="max-md:hidden">Close</span>}
+						{!isScrolled && (
+							<span className="max-md:hidden">{t.navbar.menu.label.close}</span>
+						)}
 						<X />
 					</>
 				) : (
 					<>
-						{!isScrolled && <span className="max-md:hidden">Menu</span>}
+						{!isScrolled && (
+							<span className="max-md:hidden">{t.navbar.menu.label.open}</span>
+						)}
 						<Menu />
 					</>
 				)}
@@ -186,7 +184,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 			<div className="absolute top-30 max-md:top-20 hidden bg-black text-white! rounded-4xl p-6 w-80 shadow-lg gsap">
 				<nav>
 					<ul>
-						{menuVoices.map((menuVoice) => (
+						{t.navbar.menu.voices.map((menuVoice: any) => (
 							<li
 								key={menuVoice}
 								className="p-3 px-6 cursor-pointer list-none last:text-black! last:bg-white rounded-full"
