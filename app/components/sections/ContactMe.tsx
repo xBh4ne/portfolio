@@ -23,50 +23,53 @@ export default function ContactMe() {
 		message: "",
 	});
 
-	useGSAP(() => {
+	useGSAP(
+		() => {
+			if (!document.querySelector("#contact-title")?.textContent) return;
 
-		const titleSplit = new SplitText("#contact-title", { type: "words" });
-		gsap.from(titleSplit.words, {
-			opacity: 0,
-			y: 40,
-			duration: 0.6,
-			ease: "power2.out",
-			stagger: 0.05,
-			scrollTrigger: {
-				trigger: "#contact-title",
-				start: "top 50%",
-				toggleActions: "play none none reverse",
-			},
-		});
+			const titleSplit = new SplitText("#contact-title", { type: "words" });
 
-	
-		gsap.from(".contact-info-item", {
-			opacity: 0,
-			x: -40,
-			duration: 0.6,
-			ease: "power2.out",
-			stagger: 0.15,
-			scrollTrigger: {
-				trigger: "#contact-left",
-				start: "top 50%",
-				toggleActions: "play none none reverse",
-			},
-		});
+			gsap.from(titleSplit.words, {
+				opacity: 0,
+				y: 40,
+				duration: 0.6,
+				ease: "power2.out",
+				stagger: 0.05,
+				scrollTrigger: {
+					trigger: "#contact-title",
+					start: "top 50%",
+					toggleActions: "play none none reverse",
+				},
+			});
 
-	
-		gsap.from(".form-field", {
-			opacity: 0,
-			y: 40,
-			duration: 0.6,
-			ease: "power2.out",
-			stagger: 0.15,
-			scrollTrigger: {
-				trigger: "#contact-form",
-				start: "top 50%",
-				toggleActions: "play none none reverse",
-			},
-		});
-	});
+			gsap.from(".contact-info-item", {
+				opacity: 0,
+				x: -40,
+				duration: 0.6,
+				ease: "power2.out",
+				stagger: 0.15,
+				scrollTrigger: {
+					trigger: "#contact-left",
+					start: "top 50%",
+					toggleActions: "play none none reverse",
+				},
+			});
+
+			gsap.from(".form-field", {
+				opacity: 0,
+				y: 40,
+				duration: 0.6,
+				ease: "power2.out",
+				stagger: 0.15,
+				scrollTrigger: {
+					trigger: "#contact-form",
+					start: "top 50%",
+					toggleActions: "play none none reverse",
+				},
+			});
+		},
+		{ dependencies: [t] },
+	);
 
 	function handleChange(
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -87,7 +90,6 @@ export default function ContactMe() {
 		<section className="px-5 mt-80" id="Contact Me">
 			<div className="container mx-auto">
 				<div className="grid grid-cols-2 gap-20 max-md:grid-cols-1">
-				
 					<div id="contact-left" className="flex flex-col gap-5">
 						<h2 id="contact-title">{t.contactMe.title}</h2>
 						<div className="flex flex-col items-start gap-8">
@@ -123,7 +125,6 @@ export default function ContactMe() {
 						</div>
 					</div>
 
-					
 					<form
 						id="contact-form"
 						onSubmit={handleSubmit}

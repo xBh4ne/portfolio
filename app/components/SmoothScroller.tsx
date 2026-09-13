@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollSmoother from "gsap/ScrollSmoother";
+import { setupGsap } from "../utils/gsapConfig";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
