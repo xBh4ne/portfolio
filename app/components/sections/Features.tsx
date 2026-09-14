@@ -26,7 +26,7 @@ export default function Features() {
 	});
 
 	return (
-		<section className="my-20 px-5" id="Features">
+		<section className="my-20 px-5" id="features">
 			<div className="container mx-auto">
 				<div className="flex justify-between items-start gap-10 max-md:flex-wrap with-separator">
 					{t.features.map((column) => (

@@ -54,7 +54,7 @@ export default function Projects() {
 	});
 
 	return (
-		<section className="px-5 mt-80" id="Projects">
+		<section className="px-5 mt-80" id="projects">
 			<div className="container mx-auto">
 				<div className="flex flex-col gap-20">
 					<div className="flex justify-between items-center max-md:flex-wrap gap-5">

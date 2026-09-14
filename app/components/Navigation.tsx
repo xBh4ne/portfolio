@@ -1,11 +1,12 @@
+// Navigation.tsx
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
 import Button from "../components/Button";
 import { gsap } from "gsap";
+import ScrollSmoother from "gsap/ScrollSmoother";
 import { X, Menu } from "lucide-react";
 import { useGSAP } from "@gsap/react";
-import data from "@/locales/en.json";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface NavigationProps {
@@ -16,24 +17,26 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const isAnimating = useRef<boolean>(false);
 	const wrapperRef = useRef<HTMLDivElement>(null);
+	const isMobile = useRef<boolean>(false);
 
 	const { t } = useLanguage();
 
+	useEffect(() => {
+		isMobile.current = window.matchMedia("(max-width: 767px)").matches;
+	}, []);
+
 	const getCenterOffset = useCallback((): number => {
 		if (!wrapperRef.current) return 0;
-
 		const rect = wrapperRef.current.getBoundingClientRect();
 		const currentX = gsap.getProperty(wrapperRef.current, "x") as number;
-
 		const naturalCenterX = rect.left + rect.width / 2 - currentX;
 		const viewportCenter = window.innerWidth / 2;
-
 		return viewportCenter - naturalCenterX;
 	}, []);
 
 	useGSAP(
 		() => {
-			if (!wrapperRef.current) return;
+			if (!wrapperRef.current || isMobile.current) return; // ⛔ skip su mobile
 
 			gsap.to(wrapperRef.current, {
 				x: isScrolled ? getCenterOffset() : 0,
@@ -105,7 +108,6 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 
 		if (!isOpen) {
 			isAnimating.current = true;
-
 			gsap.fromTo(
 				".gsap",
 				{ opacity: 0, y: -20, display: "none", height: 0 },
@@ -133,10 +135,29 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 					delay: 0.2,
 				},
 			);
-
 			setIsOpen(true);
 		} else {
 			closeMenu();
+		}
+	}
+
+	// 🔗 Naviga alla sezione: usa ScrollSmoother su desktop, nativo su mobile
+	function handleNavClick(
+		e: React.MouseEvent<HTMLAnchorElement>,
+		section: string,
+	) {
+		e.preventDefault();
+		closeMenu();
+
+		const el = document.querySelector(`#${section}`);
+		if (!el) return;
+
+		const smoother = ScrollSmoother.get(); // prende l'istanza esistente (null su mobile)
+
+		if (smoother) {
+			smoother.scrollTo(el, true, "top top");
+		} else {
+			el.scrollIntoView({ behavior: "smooth" }); // fallback mobile
 		}
 	}
 
@@ -184,17 +205,23 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 			<div className="absolute top-30 max-md:top-20 hidden bg-black text-white! rounded-4xl p-6 w-80 shadow-lg gsap">
 				<nav>
 					<ul>
-						{t.navbar.menu.voices.map((menuVoice: any) => (
-							<li
-								key={menuVoice}
-								className="p-3 px-6 cursor-pointer list-none last:text-black! last:bg-white rounded-full"
-								onMouseEnter={handleMouseEnter}
-								onMouseLeave={handleMouseLeave}
-								onClick={closeMenu}
-							>
-								<a href={"#" + menuVoice}>{menuVoice}</a>
-							</li>
-						))}
+						{t.navbar.menu.voices.map(
+							(menuVoice: { id: string; label: string }) => (
+								<li
+									key={menuVoice.id}
+									className="p-3 px-6 cursor-pointer list-none last:text-black! last:bg-white rounded-full"
+									onMouseEnter={handleMouseEnter}
+									onMouseLeave={handleMouseLeave}
+								>
+									<a
+										href={`#${menuVoice.id}`}
+										onClick={(e) => handleNavClick(e, menuVoice.id)}
+									>
+										{menuVoice.label} {/* 👈 mostra il testo tradotto */}
+									</a>
+								</li>
+							),
+						)}
 					</ul>
 				</nav>
 			</div>

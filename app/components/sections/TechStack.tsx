@@ -26,7 +26,7 @@ export default function TechStack() {
 	});
 
 	return (
-		<section className="my-80 px-5" id="Tech Stack">
+		<section className="my-80 px-5" id="tech-stack">
 			<div className="container mx-auto ">
 				<div className="flex flex-col gap-10 ">
 					<div className="flex justify-between items-center flex-wrap">

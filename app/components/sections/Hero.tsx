@@ -59,7 +59,7 @@ export default function Hero() {
 	});
 
 	return (
-		<section className="px-5" id="Home">
+		<section className="px-5" id="home">
 			<div className="container mx-auto relative">
 				<div className="flex flex-col items-center gap-3 mt-10 absolute left-1/2 -translate-x-1/2 bottom-28 max-md:hidden">
 					<ChevronDown id="hero-chevron" className="text-gray" />

@@ -6,7 +6,13 @@
 				"open": "Menu",
 				"close": "Chiudi"
 			},
-			"voices": ["Home", "Tech Stack", "Chi Sono", "Progetti", "Contattami"]
+			"voices": [
+				{ "id": "home", "label": "Home" },
+				{ "id": "tech-stack", "label": "Tech Stack" },
+				{ "id": "about-me", "label": "Chi Sono" },
+				{ "id": "projects", "label": "Progetti" },
+				{ "id": "contact-me", "label": "Contattami" }
+			]
 		}
 	},
 
