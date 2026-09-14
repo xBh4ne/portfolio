@@ -1,4 +1,3 @@
-// Navigation.tsx
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -36,7 +35,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 
 	useGSAP(
 		() => {
-			if (!wrapperRef.current || isMobile.current) return; // ⛔ skip su mobile
+			if (!wrapperRef.current || isMobile.current) return;
 
 			gsap.to(wrapperRef.current, {
 				x: isScrolled ? getCenterOffset() : 0,
@@ -141,27 +140,26 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		}
 	}
 
-	// 🔗 Naviga alla sezione: usa ScrollSmoother su desktop, nativo su mobile
 	function handleNavClick(
 		e: React.MouseEvent<HTMLAnchorElement>,
 		section: string,
 	) {
 		e.preventDefault();
+		e.stopPropagation();
 		closeMenu();
 
 		const el = document.querySelector(`#${section}`);
 		if (!el) return;
 
-		const smoother = ScrollSmoother.get(); // prende l'istanza esistente (null su mobile)
-
+		const smoother = ScrollSmoother.get();
 		if (smoother) {
 			smoother.scrollTo(el, true, "top top");
 		} else {
-			el.scrollIntoView({ behavior: "smooth" }); // fallback mobile
+			el.scrollIntoView({ behavior: "smooth" });
 		}
 	}
 
-	function handleMouseEnter(e: React.MouseEvent<HTMLLIElement>) {
+	function handleMouseEnter(e: React.MouseEvent<HTMLAnchorElement>) {
 		gsap.to(e.currentTarget, {
 			paddingLeft: "2.5rem",
 			color: "var(--color-primary)",
@@ -170,7 +168,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		});
 	}
 
-	function handleMouseLeave(e: React.MouseEvent<HTMLLIElement>) {
+	function handleMouseLeave(e: React.MouseEvent<HTMLAnchorElement>) {
 		gsap.to(e.currentTarget, {
 			paddingLeft: "1.5rem",
 			color: "var(--color-white)",
@@ -209,15 +207,16 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 							(menuVoice: { id: string; label: string }) => (
 								<li
 									key={menuVoice.id}
-									className="p-3 px-6 cursor-pointer list-none last:text-black! last:bg-white rounded-full"
-									onMouseEnter={handleMouseEnter}
-									onMouseLeave={handleMouseLeave}
+									className="list-none last:bg-white last:rounded-full text-white last:text-black!"
 								>
 									<a
 										href={`#${menuVoice.id}`}
 										onClick={(e) => handleNavClick(e, menuVoice.id)}
+										onMouseEnter={handleMouseEnter}
+										onMouseLeave={handleMouseLeave}
+										className="block  p-3 px-6 rounded-full cursor-pointer "
 									>
-										{menuVoice.label} {/* 👈 mostra il testo tradotto */}
+										{menuVoice.label}
 									</a>
 								</li>
 							),
