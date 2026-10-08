@@ -66,15 +66,15 @@ export default function Projects() {
 	});
 
 	return (
-		<section className="px-5 mt-80" id="projects">
-			<div className="container mx-auto">
+		<section className="px-5 mt-80 overflow-clip!" id="projects">
+			<div className="container mx-auto ">
 				<div className="flex flex-col gap-20">
 					<div className="flex justify-between items-center max-md:flex-wrap gap-5">
 						<h2 id="title">{t.projects.title}</h2>
 						<p id="desc">{t.projects.description}</p>
 					</div>
 
-					<div className="grid grid-cols-2 max-md:grid-cols-1 gap-10">
+					<div className="grid grid-cols-2 max-md:grid-cols-1 gap-10 ">
 						{t.projects.items.map((project) => (
 							<div
 								key={project.name}
