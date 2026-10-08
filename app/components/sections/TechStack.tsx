@@ -18,8 +18,8 @@ export default function TechStack() {
 			ease: "power2.out",
 			stagger: 0.2,
 			scrollTrigger: {
-				trigger: "#Features",
-				start: "top 30%",
+				trigger: "#tech-stack",
+				start: "top 80%",
 				toggleActions: "play none none reverse",
 			},
 		});

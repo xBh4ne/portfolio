@@ -89,6 +89,13 @@
 		},
 		"items": [
 			{
+				"name": "Niccolò",
+				"description": "Un sito web portfolio responsive per lo sviluppatore di videogiochi Niccolò, realizzato con Next.js e Tailwind CSS, che presenta un carosello dei progetti, badge delle piattaforme e una sezione ”Chi sono“ basata su Markdown, con particolare attenzione alle prestazioni, a un'interfaccia utente pulita e a metadati ottimizzati per la SEO.",
+				"year": 2026,
+				"image": "/images/projects/niccolo.png",
+				"url": "https://niccololucozzi.netlify.app"
+			},
+			{
 				"name": "Ostudio",
 				"description": "Un sito essenziale ed elegante per uno studio di architettura con sede a Venezia. Pensato per riflettere il loro stile e valorizzare i progetti con la cura che meritano.",
 				"year": 2024,

@@ -82,7 +82,7 @@ export default function Hero() {
 						</h1>
 						<p id="hero-subtitle">{t.hero.description}</p>
 						<div id="hero-button-group" className="flex gap-5 flex-wrap">
-							<a href="#Contact Me">
+							<a href="#contact-me">
 								<Button arrow>{t.hero.buttons.primary}</Button>
 							</a>
 							<DownloadCV>{t.hero.buttons.secondary}</DownloadCV>
@@ -95,7 +95,7 @@ export default function Hero() {
 						id="hero-image"
 						width={1000}
 						height={1000}
-						className="object-top object-cover h-[90vh] w-162 absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-b-full sepia-30 max-md:hidden"
+						className="object-top object-cover h-[90vh] w-162 absolute top-0 left-1/2 -translate-x-1/2 -z-10 rounded-b-full sepia-30 max-2xl:opacity-10!"
 						alt="hero-image"
 						src="/images/hero-image.png"
 						priority

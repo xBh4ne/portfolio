@@ -89,6 +89,13 @@
 		},
 		"items": [
 			{
+				"name": "Niccolò",
+				"description": "A responsive portfolio website for game developer Niccolò,built with Next.js and Tailwind CSS, featuring a project carousel, platform badges, and a markdown-driven “About Me” section, with a strong focus on performance, clean UI, and SEO-ready metadata.",
+				"year": 2026,
+				"image": "/images/projects/niccolo.png",
+				"url": "https://niccololucozzi.netlify.app"
+			},
+			{
 				"name": "Ostudio",
 				"description": "A refined, minimal website for a Venice-based architecture studio, designed to reflect their aesthetic and present their work with the elegance it deserves.",
 				"year": 2024,

@@ -16,13 +16,8 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const isAnimating = useRef<boolean>(false);
 	const wrapperRef = useRef<HTMLDivElement>(null);
-	const isMobile = useRef<boolean>(false);
 
 	const { t } = useLanguage();
-
-	useEffect(() => {
-		isMobile.current = window.matchMedia("(max-width: 767px)").matches;
-	}, []);
 
 	const getCenterOffset = useCallback((): number => {
 		if (!wrapperRef.current) return 0;
@@ -35,7 +30,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 
 	useGSAP(
 		() => {
-			if (!wrapperRef.current || isMobile.current) return;
+			if (!wrapperRef.current) return;
 
 			gsap.to(wrapperRef.current, {
 				x: isScrolled ? getCenterOffset() : 0,

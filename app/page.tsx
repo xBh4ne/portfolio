@@ -5,6 +5,8 @@ import TechStack from "./components/sections/TechStack";
 import About from "./components/sections/About";
 import Projects from "./components/sections/Projects";
 import ContactMe from "./components/sections/ContactMe";
+import Header from "./components/sections/Header";
+import ReturnToTop from "./components/ReturnToTop";
 
 const jsonLd = {
 	"@context": "https://schema.org",
@@ -36,12 +38,7 @@ const jsonLd = {
 export default function Home() {
 	return (
 		<>
-			<script
-				id="json-ld-person"
-				type="application/ld+json"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-			/>
-
+			<Header />
 			<Hero />
 			<Features />
 			<TechStack />
@@ -49,6 +46,7 @@ export default function Home() {
 			<Projects />
 			<ContactMe />
 			<Footer />
+			<ReturnToTop />
 		</>
 	);
 }

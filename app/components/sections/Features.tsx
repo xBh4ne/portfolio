@@ -18,7 +18,7 @@ export default function Features() {
 			ease: "power2.out",
 			stagger: 0.2,
 			scrollTrigger: {
-				trigger: "#Features",
+				trigger: "#features",
 				start: "top 80%",
 				toggleActions: "play none none reverse",
 			},

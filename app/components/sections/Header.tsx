@@ -30,6 +30,9 @@ export default function Header() {
 		});
 	});
 
+	
+	
+
 	return (
 		<header className="flex w-full bg-transparent py-10 max-md:py-3 fixed top-0 px-5 z-10 pointer-events-none">
 			<div className="container mx-auto">

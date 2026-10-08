@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import SmoothScroller from "@/app/components/SmoothScroller";
 import { LanguageProvider } from "@/context/LanguageContext";
-import Header from "@/app/components/sections/Header";
-import ReturnToTop from "@/app/components/ReturnToTop";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://www.jasonbini.dev"),
@@ -65,20 +62,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className="scroll-smooth overflow-x-hidden">
-			<body className="bg-white h-auto">
-				<LanguageProvider>
-					<SmoothScroller
-						overlay={
-							<>
-								<Header />
-								<ReturnToTop />
-							</>
-						}
-					>
-						{children}
-					</SmoothScroller>
-				</LanguageProvider>
+		<html lang="en" className="scroll-smooth ">
+			<body className="bg-white">
+				<LanguageProvider>{children}</LanguageProvider>
 			</body>
 		</html>
 	);

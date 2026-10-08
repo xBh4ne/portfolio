@@ -12,59 +12,62 @@ export default function About() {
 	const { t } = useLanguage();
 
 	useGSAP(() => {
-
-		const titleSplit = new SplitText("#about-title", { type: "words" });
-		const subtitleSplit = new SplitText("#about-subtitle", { type: "words" });
-		const descSplit = new SplitText("#about-description", { type: "lines" });
-
-		gsap.from(titleSplit.words, {
-			opacity: 0,
-			x: -50,
-			duration: 0.6,
-			ease: "power2.out",
-			stagger: 0.05,
-			scrollTrigger: {
-				trigger: "#about-title",
-				start: "top 60%",
-				toggleActions: "play none none reverse",
+		const animations = [
+			{
+				selector: "#about-title",
+				type: "words",
+				stagger: 0.05,
+				x: -50,
+				duration: 0.6,
+				triggerId: "about-title",
 			},
-		});
-
-		gsap.from(subtitleSplit.words, {
-			opacity: 0,
-			x: 50,
-			duration: 0.5,
-			ease: "power2.out",
-			stagger: 0.04,
-			scrollTrigger: {
-				trigger: "#about-subtitle",
-				start: "top 60%",
-				toggleActions: "play none none reverse",
+			{
+				selector: "#about-subtitle",
+				type: "words",
+				stagger: 0.04,
+				x: 50,
+				duration: 0.5,
+				triggerId: "about-subtitle",
 			},
-		});
-
-		gsap.from(descSplit.lines, {
-			opacity: 0,
-			x: 50,
-			duration: 0.5,
-			ease: "power2.out",
-			stagger: 0.08,
-			scrollTrigger: {
-				trigger: "#about-description",
-				start: "top 60%",
-				toggleActions: "play none none reverse",
+			{
+				selector: "#about-description",
+				type: "lines",
+				stagger: 0.08,
+				x: 50,
+				duration: 0.5,
+				triggerId: "about-description",
 			},
-		});
-	});
+		];
+
+		animations.forEach(
+			({ selector, type, stagger, x, duration, triggerId }) => {
+				const splitElement = new SplitText(selector, { type });
+
+				gsap.from(splitElement[type === "words" ? "words" : "lines"], {
+					opacity: 0,
+					x: x,
+					duration: duration,
+					ease: "power2.out",
+					stagger: stagger,
+					scrollTrigger: {
+						trigger: `#${triggerId}`,
+						start: "top 60%",
+						toggleActions: "play none none reverse",
+					},
+				});
+			},
+		);
+	}, []);
 
 	return (
 		<section className="px-5" id="about-me">
 			<div className="container mx-auto">
-				<div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
-					<div>
+				<div className="grid grid-cols-2 gap-5 max-md:grid-cols-1 items-start">
+					<div className="md:sticky top-20 overflow-hidden">
 						<h2 id="about-title">{t.about.title}</h2>
 					</div>
-					<div className="flex flex-col gap-10">
+
+					<div className="flex flex-col gap-10 overflow-hidden">
 						<span
 							id="about-subtitle"
 							className="font-instrument text-4xl text-black"
