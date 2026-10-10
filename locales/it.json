@@ -93,7 +93,7 @@
 				"description": "Un sito web portfolio responsive per lo sviluppatore di videogiochi Niccolò, realizzato con Next.js e Tailwind CSS, che presenta un carosello dei progetti, badge delle piattaforme e una sezione ”Chi sono“ basata su Markdown, con particolare attenzione alle prestazioni, a un'interfaccia utente pulita e a metadati ottimizzati per la SEO.",
 				"year": 2026,
 				"image": "/images/projects/niccolo.png",
-				"url": "https://niccololucozzi.netlify.app"
+				"url": "https://niccololucozzi.space"
 			},
 			{
 				"name": "Ostudio",
