@@ -20,7 +20,7 @@ export default function Footer() {
 			ease: "power2.out",
 			scrollTrigger: {
 				trigger: "#footer-logo",
-				start: "top 90%",
+				start: "top 80%",
 				toggleActions: "play none none reverse",
 			},
 		});
@@ -33,7 +33,7 @@ export default function Footer() {
 			delay: 0.3,
 			scrollTrigger: {
 				trigger: "#footer-copyright",
-				start: "top 100%",
+				start: "top 80%",
 				toggleActions: "play none none reverse",
 			},
 		});
