@@ -157,7 +157,6 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 	function handleMouseEnter(e: React.MouseEvent<HTMLAnchorElement>) {
 		gsap.to(e.currentTarget, {
 			paddingLeft: "2.5rem",
-			color: "var(--color-primary)",
 			duration: 0.3,
 			ease: "power2.out",
 		});
@@ -166,7 +165,6 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 	function handleMouseLeave(e: React.MouseEvent<HTMLAnchorElement>) {
 		gsap.to(e.currentTarget, {
 			paddingLeft: "1.5rem",
-			color: "var(--color-white)",
 			duration: 0.3,
 			ease: "power2.inOut",
 		});
@@ -195,14 +193,14 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 				)}
 			</Button>
 
-			<div className="absolute top-30 max-md:top-20 hidden bg-black text-white! rounded-4xl p-6 w-80 shadow-lg gsap">
+			<div className="absolute top-20 max-md:top-20 hidden bg-black text-white! rounded-4xl p-6 w-80 shadow-lg gsap">
 				<nav>
 					<ul>
 						{t.navbar.menu.voices.map(
 							(menuVoice: { id: string; label: string }) => (
 								<li
 									key={menuVoice.id}
-									className="list-none last:bg-white last:rounded-full text-white last:text-black!"
+									className="list-none last:bg-white last:hover:text-amber-400 last:rounded-full text-white last:text-black!"
 								>
 									<a
 										href={`#${menuVoice.id}`}

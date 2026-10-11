@@ -16,10 +16,10 @@ export default function TechStack() {
 			y: 50,
 			duration: 0.8,
 			ease: "power2.out",
-			stagger: 0.2,
+			stagger: 0.05,
 			scrollTrigger: {
 				trigger: "#tech-stack",
-				start: "top 80%",
+				start: "top 50%",
 				toggleActions: "play none none reverse",
 			},
 		});

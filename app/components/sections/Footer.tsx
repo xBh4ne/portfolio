@@ -33,7 +33,7 @@ export default function Footer() {
 			delay: 0.3,
 			scrollTrigger: {
 				trigger: "#footer-copyright",
-				start: "top 80%",
+				start: "top 100%",
 				toggleActions: "play none none reverse",
 			},
 		});
