@@ -12,32 +12,59 @@ interface NavigationProps {
 	isScrolled: boolean;
 }
 
+// Simple debounce utility function
+const debounce = (func: Function, delay: number) => {
+	let timeoutId: ReturnType<typeof setTimeout> | null = null;
+	return (...args: any[]) => {
+		if (timeoutId !== null) {
+			clearTimeout(timeoutId);
+		}
+		timeoutId = setTimeout(() => {
+			func(...args);
+		}, delay);
+	};
+};
+
 export default function Navigation({ isScrolled }: NavigationProps) {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const isAnimating = useRef<boolean>(false);
 	const wrapperRef = useRef<HTMLDivElement>(null);
 
+	// Debounced closeMenu handler for scroll events
+	const debouncedCloseMenuOnScroll = useCallback(
+		debounce(() => {
+			closeMenu();
+		}, 150), // Debounce by 150ms
+		[],
+	);
+
 	const { t } = useLanguage();
 
+	// Memoized calculation for center offset (GSAP dependency)
 	const getCenterOffset = useCallback((): number => {
-		if (!wrapperRef.current) return 0;
+		if (!wrapperRef.current || !window.innerWidth) return 0;
 		const rect = wrapperRef.current.getBoundingClientRect();
 		const currentX = gsap.getProperty(wrapperRef.current, "x") as number;
-		const naturalCenterX = rect.left + rect.width / 2 - currentX;
+		// Calculate the center of the element relative to its natural position
+		const elementCenterNaturalX = rect.left + rect.width / 2;
+
+		// The target X offset needed is Viewport Center minus Element's Natural Center (adjusted by current transform)
 		const viewportCenter = window.innerWidth / 2;
-		return viewportCenter - naturalCenterX;
+		return viewportCenter - (elementCenterNaturalX - currentX);
 	}, []);
 
 	useGSAP(
 		() => {
 			if (!wrapperRef.current) return;
 
+			// Initial scroll positioning animation
 			gsap.to(wrapperRef.current, {
 				x: isScrolled ? getCenterOffset() : 0,
 				ease: "elastic.out(0.3, 0.8)",
 				duration: 1,
 			});
 
+			// Handle window resize to maintain centering when scrolled
 			const handleResize = () => {
 				if (!wrapperRef.current || !isScrolled) return;
 				gsap.to(wrapperRef.current, {
@@ -50,6 +77,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 			window.addEventListener("resize", handleResize);
 			return () => window.removeEventListener("resize", handleResize);
 		},
+		// Dependency array ensures GSAP runs when scroll state or offset calculation changes.
 		{ dependencies: [isScrolled, getCenterOffset], scope: wrapperRef },
 	);
 
@@ -57,6 +85,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		if (!isOpen || isAnimating.current) return;
 		isAnimating.current = true;
 
+		// Close animation sequence
 		gsap.to(".gsap li", {
 			opacity: 0,
 			x: -30,
@@ -82,25 +111,35 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		setIsOpen(false);
 	}
 
+	// Optimized scroll listener using debounce
 	useEffect(() => {
-		const handleScroll = () => closeMenu();
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, [isOpen]);
+		window.addEventListener("scroll", debouncedCloseMenuOnScroll);
+		return () =>
+			window.removeEventListener("scroll", debouncedCloseMenuOnScroll);
+	}, [debouncedCloseMenuOnScroll]);
 
+	// Click outside handler: only needs to run when a menu is open
 	useEffect(() => {
+		if (!isOpen) return;
+
 		const handleClickOutside = (e: MouseEvent) => {
-			if (!wrapperRef.current) return;
-			if (!wrapperRef.current.contains(e.target as Node)) closeMenu();
+			if (
+				!wrapperRef.current ||
+				wrapperRef.current.contains(e.target as Node)
+			) {
+				return;
+			}
+			closeMenu();
 		};
 		document.addEventListener("mousedown", handleClickOutside);
 		return () => document.removeEventListener("mousedown", handleClickOutside);
-	}, [isOpen]);
+	}, [isOpen]); // Dependency on isOpen is necessary to control the listener
 
 	function handleClick() {
 		if (isAnimating.current) return;
 
 		if (!isOpen) {
+			// Open animation sequence
 			isAnimating.current = true;
 			gsap.fromTo(
 				".gsap",
@@ -139,6 +178,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		e: React.MouseEvent<HTMLAnchorElement>,
 		section: string,
 	) {
+		// Prevents default link behavior and stops event bubbling up to the button/wrapper if needed.
 		e.preventDefault();
 		e.stopPropagation();
 		closeMenu();
@@ -146,6 +186,7 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		const el = document.querySelector(`#${section}`);
 		if (!el) return;
 
+		// Use ScrollSmoother first, then fallback to native smooth scroll
 		const smoother = ScrollSmoother.get();
 		if (smoother) {
 			smoother.scrollTo(el, true, "top top");
@@ -154,27 +195,12 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 		}
 	}
 
-	function handleMouseEnter(e: React.MouseEvent<HTMLAnchorElement>) {
-		gsap.to(e.currentTarget, {
-			paddingLeft: "2.5rem",
-			duration: 0.3,
-			ease: "power2.out",
-		});
-	}
-
-	function handleMouseLeave(e: React.MouseEvent<HTMLAnchorElement>) {
-		gsap.to(e.currentTarget, {
-			paddingLeft: "1.5rem",
-			duration: 0.3,
-			ease: "power2.inOut",
-		});
-	}
-
 	return (
 		<div
 			ref={wrapperRef}
 			className={`flex flex-col ${isScrolled ? "items-center" : "items-end"} gap-4 pointer-events-auto`}
 		>
+			{/* Button remains the entry point */}
 			<Button onClick={handleClick} addClass="max-md:p-4">
 				{isOpen ? (
 					<>
@@ -193,9 +219,14 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 				)}
 			</Button>
 
-			<div className="absolute top-20 max-md:top-20 hidden bg-black text-white! rounded-4xl p-6 w-80 shadow-lg gsap">
+			{/* Navigation Menu */}
+			<div
+				className={`absolute top-20 max-md:top-20 hidden bg-black text-white! rounded-4xl p-6 w-80 shadow-lg gsap transition-all duration-300 ease-out`}
+			>
 				<nav>
-					<ul>
+					<ul className="gsap">
+						{" "}
+						{/* Added gsap class here for animation targeting */}
 						{t.navbar.menu.voices.map(
 							(menuVoice: { id: string; label: string }) => (
 								<li
@@ -205,9 +236,8 @@ export default function Navigation({ isScrolled }: NavigationProps) {
 									<a
 										href={`#${menuVoice.id}`}
 										onClick={(e) => handleNavClick(e, menuVoice.id)}
-										onMouseEnter={handleMouseEnter}
-										onMouseLeave={handleMouseLeave}
-										className="block  p-3 px-6 rounded-full cursor-pointer "
+										// Removed mouse handlers to rely on CSS for hover state if possible
+										className="block p-3 pl-3 hover:pl-5 px-6 rounded-full cursor-pointer transition-all! duration-200!  ease-out"
 									>
 										{menuVoice.label}
 									</a>
