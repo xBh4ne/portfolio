@@ -30,25 +30,25 @@ The website is also an opportunity to experiment with frontend development, anim
 
 ## Features
 
-* **Project showcase** to present selected work and development projects.
-* **Responsive layout** designed to work across desktop, tablet, and mobile devices.
-* **Interactive animations** powered by GSAP.
-* **Modern frontend stack** using Next.js, React, and TypeScript.
-* **Reusable components** for a consistent interface and easier maintenance.
-* **Localization resources** organized within a dedicated directory.
+- **Project showcase** to present selected work and development projects.
+- **Responsive layout** designed to work across desktop, tablet, and mobile devices.
+- **Interactive animations** powered by GSAP.
+- **Modern frontend stack** using Next.js, React, and TypeScript.
+- **Reusable components** for a consistent interface and easier maintenance.
+- **Localization resources** organized within a dedicated directory.
 
 ## Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| [Next.js](https://nextjs.org/) | Application framework |
-| [React](https://react.dev/) | UI development |
-| [TypeScript](https://www.typescriptlang.org/) | Type safety |
-| [Tailwind CSS](https://tailwindcss.com/) | Styling and responsive layouts |
-| [GSAP](https://gsap.com/) | Animations and transitions |
-| [Lucide React](https://lucide.dev/) | Icons |
-| [Biome](https://biomejs.dev/) | Linting and code formatting |
-| [pnpm](https://pnpm.io/) | Package management |
+| Technology                                    | Purpose                        |
+| --------------------------------------------- | ------------------------------ |
+| [Next.js](https://nextjs.org/)                | Application framework          |
+| [React](https://react.dev/)                   | UI development                 |
+| [TypeScript](https://www.typescriptlang.org/) | Type safety                    |
+| [Tailwind CSS](https://tailwindcss.com/)      | Styling and responsive layouts |
+| [GSAP](https://gsap.com/)                     | Animations and transitions     |
+| [Lucide React](https://lucide.dev/)           | Icons                          |
+| [Biome](https://biomejs.dev/)                 | Linting and code formatting    |
+| [pnpm](https://pnpm.io/)                      | Package management             |
 
 ## Getting Started
 
@@ -81,13 +81,13 @@ Changes made to the source files are reflected automatically during development.
 
 ## Available Scripts
 
-| Command | Description |
-|---|---|
-| `pnpm dev` | Starts the development server |
-| `pnpm build` | Builds the application for production |
-| `pnpm start` | Runs the production build |
-| `pnpm lint` | Checks the code with Biome |
-| `pnpm format` | Formats the source files with Biome |
+| Command       | Description                           |
+| ------------- | ------------------------------------- |
+| `pnpm dev`    | Starts the development server         |
+| `pnpm build`  | Builds the application for production |
+| `pnpm start`  | Runs the production build             |
+| `pnpm lint`   | Checks the code with Biome            |
+| `pnpm format` | Formats the source files with Biome   |
 
 To test the production build locally, run:
 
@@ -117,11 +117,11 @@ portfolio/
 
 When working on this project, I focus on a few principles:
 
-* **Simplicity:** keeping the code readable and avoiding unnecessary complexity.
-* **Usability:** making interfaces intuitive and easy to navigate.
-* **Consistency:** maintaining a coherent visual language across the website.
-* **Maintainability:** using reusable components and modern development tools.
-* **Experimentation:** exploring new techniques and improving the implementation over time.
+- **Simplicity:** keeping the code readable and avoiding unnecessary complexity.
+- **Usability:** making interfaces intuitive and easy to navigate.
+- **Consistency:** maintaining a coherent visual language across the website.
+- **Maintainability:** using reusable components and modern development tools.
+- **Experimentation:** exploring new techniques and improving the implementation over time.
 
 ## Deployment
 
@@ -141,10 +141,10 @@ I'm always looking for opportunities to learn, experiment with new technologies,
 
 ## Contact
 
-* **Portfolio:** [jasonbini.dev](https://www.jasonbini.dev)
-* **GitHub:** [@xBh4ne](https://github.com/xBh4ne)
-* **LinkedIn:** [linkedin.com/in/jasonbini](https://linkedin.com/in/jasonbini)
-* **Email:** [me.jasonbini@gmail.com](mailto:me.jasonbini@gmail.com)
+- **Portfolio:** [jasonbini.dev](https://www.jasonbini.dev)
+- **GitHub:** [@xBh4ne](https://github.com/xBh4ne)
+- **LinkedIn:** [linkedin.com/in/jasonbini](https://linkedin.com/in/jasonbini)
+- **Email:** [jasonbini@tuta.io](mailto:jasonbini@tuta.io)
 
 ---
 
