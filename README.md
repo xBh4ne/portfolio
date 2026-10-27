@@ -1,4 +1,4 @@
-# Jason Bini - Personal Portfolio
+# Jason Bini | Personal Portfolio
 
 <p align="center">
   <a href="https://www.jasonbini.dev">
@@ -12,97 +12,84 @@
   </a>
 </p>
 
-A modern, interactive personal portfolio built to showcase my work, technical skills, and approach to software development.
+My personal portfolio, where I showcase my projects, technical skills, and experience in software development and web design.
 
-The project combines modern web technologies, thoughtful interface design, and motion to create a professional digital presence that reflects my interests in software engineering, full-stack web development, and UI/UX.
+Built with modern web technologies, the website reflects my approach to development, combining functionality, clean interfaces, and attention to detail.
 
 **Live website:** [www.jasonbini.dev](https://www.jasonbini.dev)
 
 ---
 
-## Overview
+## About the Project
 
 I'm Jason Bini, a Software Developer with a Bachelor's degree in **Computer Science for Digital Communication from the University of Camerino (UNICAM), Italy**.
 
-This portfolio is my personal space to present selected projects, communicate my technical background, and showcase the intersection of engineering and design that drives my work.
+I built this portfolio to bring my work together in one place and share the projects I've worked on, the technologies I use, and the areas I'm interested in exploring.
 
-Rather than serving as a static résumé, the website is also a development project in its own right, built with a modern React-based stack and a focus on maintainable code, responsive interfaces, and polished interactions.
+The website is also an opportunity to experiment with frontend development, animations, responsive layouts, and interface design while maintaining a clean and maintainable codebase.
 
-## Key Highlights
+## Features
 
-- **Personal branding** — a dedicated digital identity and professional introduction.
-- **Project showcase** — a central place to explore selected development work.
-- **Modern frontend architecture** — built with Next.js, React, and TypeScript.
-- **Motion and interaction** — GSAP-powered animation capabilities.
-- **Responsive design** — developed with modern CSS tooling for adaptable layouts.
-- **Reusable UI elements** — Lucide React icons and a component-oriented development approach.
-- **Internationalization infrastructure** — a dedicated localization directory for language-related resources.
+* **Project showcase** to present selected work and development projects.
+* **Responsive layout** designed to work across desktop, tablet, and mobile devices.
+* **Interactive animations** powered by GSAP.
+* **Modern frontend stack** using Next.js, React, and TypeScript.
+* **Reusable components** for a consistent interface and easier maintenance.
+* **Localization resources** organized within a dedicated directory.
 
 ## Tech Stack
 
-| Technology                                    | Purpose                                      |
-| --------------------------------------------- | -------------------------------------------- |
-| [Next.js](https://nextjs.org/)                | React framework and application architecture |
-| [React](https://react.dev/)                   | Component-based user interfaces              |
-| [TypeScript](https://www.typescriptlang.org/) | Static typing and improved maintainability   |
-| [Tailwind CSS](https://tailwindcss.com/)      | Utility-first styling                        |
-| [GSAP](https://gsap.com/)                     | Animation and motion                         |
-| [Lucide React](https://lucide.dev/)           | Interface icons                              |
-| [Biome](https://biomejs.dev/)                 | Code formatting and linting                  |
-| [pnpm](https://pnpm.io/)                      | Package management                           |
+| Technology | Purpose |
+|---|---|
+| [Next.js](https://nextjs.org/) | Application framework |
+| [React](https://react.dev/) | UI development |
+| [TypeScript](https://www.typescriptlang.org/) | Type safety |
+| [Tailwind CSS](https://tailwindcss.com/) | Styling and responsive layouts |
+| [GSAP](https://gsap.com/) | Animations and transitions |
+| [Lucide React](https://lucide.dev/) | Icons |
+| [Biome](https://biomejs.dev/) | Linting and code formatting |
+| [pnpm](https://pnpm.io/) | Package management |
 
 ## Getting Started
 
-Follow these steps to run the project locally.
-
-### Prerequisites
-
-Make sure you have installed:
-
-- [Node.js](https://nodejs.org/)
-- [pnpm](https://pnpm.io/installation)
-- [Git](https://git-scm.com/)
+To run the project locally, make sure you have [Node.js](https://nodejs.org/), [pnpm](https://pnpm.io/installation), and [Git](https://git-scm.com/) installed.
 
 ### Installation
 
-**1. Clone the repository**
+Clone the repository:
 
 ```bash
 git clone https://github.com/xBh4ne/portfolio.git
 cd portfolio
 ```
 
-**2. Install dependencies**
+Install the dependencies:
 
 ```bash
 pnpm install
 ```
 
-**3. Start the development server**
+Start the development server:
 
 ```bash
 pnpm dev
 ```
 
-**4. Open the application**
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
 
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
-
-The development server supports hot reloading, allowing changes to appear as you edit the source files.
+Changes made to the source files are reflected automatically during development.
 
 ## Available Scripts
 
-Run the following commands from the project root.
+| Command | Description |
+|---|---|
+| `pnpm dev` | Starts the development server |
+| `pnpm build` | Builds the application for production |
+| `pnpm start` | Runs the production build |
+| `pnpm lint` | Checks the code with Biome |
+| `pnpm format` | Formats the source files with Biome |
 
-| Command       | Description                     |
-| ------------- | ------------------------------- |
-| `pnpm dev`    | Starts the development server   |
-| `pnpm build`  | Creates a production build      |
-| `pnpm start`  | Starts the production server    |
-| `pnpm lint`   | Checks the codebase with Biome  |
-| `pnpm format` | Formats the codebase with Biome |
-
-To verify the production build, run:
+To test the production build locally, run:
 
 ```bash
 pnpm build
@@ -111,7 +98,7 @@ pnpm start
 
 ## Project Structure
 
-The repository is organized around the Next.js application, shared context, localization resources, and public assets.
+The main directories and configuration files are organized as follows:
 
 ```text
 portfolio/
@@ -126,45 +113,41 @@ portfolio/
 └── README.md
 ```
 
-## Development Philosophy
+## Design and Development
 
-This project reflects the principles I value when building digital products:
+When working on this project, I focus on a few principles:
 
-- **Clarity over unnecessary complexity** — keep implementations understandable and maintainable.
-- **Design with purpose** — use visual hierarchy and motion to support the user experience.
-- **Engineering discipline** — leverage TypeScript, consistent formatting, and modern development tools.
-- **Continuous improvement** — refine the implementation as the project evolves.
+* **Simplicity:** keeping the code readable and avoiding unnecessary complexity.
+* **Usability:** making interfaces intuitive and easy to navigate.
+* **Consistency:** maintaining a coherent visual language across the website.
+* **Maintainability:** using reusable components and modern development tools.
+* **Experimentation:** exploring new techniques and improving the implementation over time.
 
 ## Deployment
 
-The project is configured as a Next.js application and can be deployed to platforms that support Next.js, including [Vercel](https://vercel.com/).
+The portfolio is built with Next.js and can be deployed to platforms that support the framework, including [Vercel](https://vercel.com/).
 
-For a production deployment:
+To deploy the project, import the repository into your chosen platform, configure the build settings and any required environment variables, and connect your domain.
 
-1. Import the repository into your deployment platform.
-2. Configure the project build settings and any required environment variables.
-3. Deploy the application.
-4. Configure the custom domain and verify the production build.
-
-The live portfolio is available at [www.jasonbini.dev](https://www.jasonbini.dev).
+You can visit the live website at [www.jasonbini.dev](https://www.jasonbini.dev).
 
 ## About Me
 
-I graduated with a Bachelor's degree in **Computer Science for Digital Communication at the University of Camerino (UNICAM)**.
+I hold a Bachelor's degree in **Computer Science for Digital Communication from the University of Camerino (UNICAM)**.
 
-My interests span software development, backend engineering, full-stack web applications, and frontend architecture. I also build websites with a strong focus on visual design, usability, and responsive implementation.
+My interests include software engineering, backend development, full-stack applications, and frontend architecture. I also develop websites, paying particular attention to visual design, usability, and responsive behaviour.
 
-I'm always looking to expand my technical knowledge, explore new approaches to software engineering, and work on projects where thoughtful design meets solid implementation.
+I'm always looking for opportunities to learn, experiment with new technologies, and build software that combines solid engineering with a well-considered user experience.
 
-## Connect
+## Contact
 
-- **Portfolio:** [jasonbini.dev](https://www.jasonbini.dev)
-- **GitHub:** [@xBh4ne](https://github.com/xBh4ne)
-- **LinkedIn:** [jasonbini](https://linkedin.com/in/jasonbini)
-- **Email:** [me.jasonbini@gmail.com](mailto:me.jasonbini@gmail.com)
+* **Portfolio:** [jasonbini.dev](https://www.jasonbini.dev)
+* **GitHub:** [@xBh4ne](https://github.com/xBh4ne)
+* **LinkedIn:** [linkedin.com/in/jasonbini](https://linkedin.com/in/jasonbini)
+* **Email:** [me.jasonbini@gmail.com](mailto:me.jasonbini@gmail.com)
 
 ---
 
 <p align="center">
-  <i>Designed with intention. Built with purpose.</i>
+  <i>Designed with care. Built with purpose.</i>
 </p>
