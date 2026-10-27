@@ -1,4 +1,4 @@
-# Jason Bini — Personal Portfolio
+# Jason Bini - Personal Portfolio
 
 <p align="center">
   <a href="https://www.jasonbini.dev">
